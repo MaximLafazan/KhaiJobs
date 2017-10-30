@@ -1,13 +1,14 @@
-﻿@{Layout = "~/Views/Shared/_User.cshtml";}
+﻿
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Student";
 }
+
 <!DOCTYPE html>
 <html>
 <head>
 
     <!-- /.website title -->
-    <title>Login - Khai Jobs</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- CSS Files -->
@@ -45,67 +46,23 @@
 
                 <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="@Url.Action("Index", "Home")">Главная</a></li>
-                        <li><a href="@Url.Action("Register", "User")">Регистрация</a></li>
+                        <li class="btn glyphicon glyphicon-align-justify"  style="font-size: x-large;color:darkgray"></li>
+
 
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
-    <div class="">
-        <div class="container content-main">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="wow fadeInUp">Авторизация</h2>
-                </div>
-            </div>
-        </div>
-        <div class="container content-main">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="wrapper">
 
-                        <div class="panel" style="width:400px;margin:auto;">
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <label class="fa fa-user col-sm-2 control-label" for="login"></label>
-                                    <input class="form-control col-sm-10 fm" id="login" type="text" placeholder="Логин" />
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="fa fa-key col-sm-2 control-label fm" for="password"></label>
-                                    <input class="form-control col-sm-10" id="password" type="password" placeholder="Пароль" />
-                                </div>
-                                <div class="col-sm-10 col-lg-offset-2" style="font-size:14px;">
-                                    @Html.ActionLink("Забыл пароль", "Index")
-                                </div>
-                                <div class="form-group col-sm-10 col-lg-offset-2">
-                                    <button class="button blue btn btn-default fm" style="font-size:18px;">Авторизоваться</button>
-
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        .fm {
-            margin-bottom: 15px;
-        }
-    </style>
-    <script src= "~/Scripts/jquery.js" ></script>
+    @RenderBody()
+    <script src="~/Scripts/jquery.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/custom.js"></script>
     <script src="~/Scripts/jquery.sticky.js"></script>
     <script src="~/Scripts/wow.min.js"></script>
     <script src="~/Scripts/owl.carousel.min.js"></script>
-    
 
 </body>
 </html>
+
