@@ -8,10 +8,22 @@ namespace KhaiJobs.Controllers
 {
     public class StudentController : Controller
     {
-        // GET: Student
-        public ActionResult Index()
+        public ActionResult JobSearch()
         {
             return View();
         }
+        public ActionResult MyFavorites()
+        {
+            return View();
+        }
+        public ActionResult ViewJobPosting()
+        {
+            return View();
+        }
+        public ActionResult PostResume()
+        {
+            return View();
+        }
+
     }
 }

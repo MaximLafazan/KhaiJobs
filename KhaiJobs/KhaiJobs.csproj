@@ -130,6 +130,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
@@ -188,6 +189,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\wow.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Views\Student\JobSearch.cshtml" />
+    <None Include="Views\Student\MyFavorites.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -205,11 +208,12 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Student\PostResume.cshtml" />
+    <Content Include="Views\Student\ViewJobPosting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Student\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,0 +1,35 @@
+﻿<div align=center>
+    <span ID="Label14" Runat="server" Text="Избранное" SkinID="FormHeading"></span>
+    <br /><br />
+    <br />
+
+</div>
+<br />
+<table style="width: 100%" align="center">
+    <tr>
+        <td style="width: 100%">
+            <asp:WebPartZone ID="WebPartZone1" runat="server" BorderStyle="NotSet"
+                             WebPartVerbRenderMode="TitleBar" Width="100%">
+                <minimizeverb text="Collapse" ImageUrl="~/Images/CollapseButton.gif" />
+                <restoreverb text="Expand" ImageUrl="~/Images/ExpandButton.gif" />
+                <closeverb imageurl="~/Images/CloseButton.gif" />
+                <ZoneTemplate>
+                    <uc1:MyJobs ID="MyJobs1" runat="server" Title="My Jobs" />
+                </ZoneTemplate>
+            </asp:WebPartZone>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 100%">
+            <asp:WebPartZone ID="WebPartZone2" runat="server" BorderStyle="NotSet"
+                             WebPartVerbRenderMode="TitleBar" Width="100%">
+                <minimizeverb text="Collapse" ImageUrl="~/Images/CollapseButton.gif" />
+                <restoreverb text="Expand" ImageUrl="~/Images/ExpandButton.gif" />
+                <closeverb imageurl="~/Images/CloseButton.gif" />
+                <ZoneTemplate>
+                    <uc2:MySearches ID="MySearches1" runat="server" Title="My Searches" width="100%" />
+                </ZoneTemplate>
+            </asp:WebPartZone>
+        </td>
+    </tr>
+</table>
