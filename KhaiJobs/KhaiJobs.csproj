@@ -140,8 +140,30 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\animate.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css-app-green.css" />
+    <Content Include="Content\css-app-orange.css" />
+    <Content Include="Content\css-app-purple.css" />
+    <Content Include="Content\css-app-red.css" />
+    <Content Include="Content\css-app-yellow.css" />
+    <Content Include="Content\css-app.css" />
+    <Content Include="Content\css-index-green.css" />
+    <Content Include="Content\css-index-orange.css" />
+    <Content Include="Content\css-index-purple.css" />
+    <Content Include="Content\css-index-red.css" />
+    <Content Include="Content\css-index-yellow.css" />
+    <Content Include="Content\css-index.css" />
+    <Content Include="Content\css-intro.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\jobs.css" />
+    <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\owl.theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -171,6 +193,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="images\Thumbs.db" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\ekko-lightbox-min.js" />
@@ -191,6 +215,8 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Company\AddEditPosting.cshtml" />
     <Content Include="Views\Company\ConpanyProfile.cshtml" />
+    <Content Include="Views\Shared\_User.cshtml" />
+    <Content Include="Views\Shared\_Student.cshtml" />
     <None Include="Views\Student\JobSearch.cshtml" />
     <None Include="Views\Student\MyFavorites.cshtml" />
     <Content Include="Web.config" />

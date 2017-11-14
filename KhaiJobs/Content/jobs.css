@@ -1,0 +1,30 @@
+﻿body {
+}
+
+.job-item {
+    border-top: #b6b6b6 solid 1px;
+    padding-bottom:30px;
+}
+.alljobs{
+    margin-bottom:20px;
+}
+.namejob {
+    color: #4d62dc;
+    font-size: 28px;
+    font-weight: 600;
+    text-decoration:none;
+}
+.companyjob {
+    color: #b6b6b6;
+}
+.descrjob {
+}
+.fitltr{
+    font-size:20px;
+    margin-bottom:20px;
+    margin:10px;
+}
+
+.contactsblock{
+    margin:15px;
+}
