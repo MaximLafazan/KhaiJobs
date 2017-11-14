@@ -67,7 +67,8 @@
 
                     <div class="panel" style="width:400px;margin:auto;">
                         <div class="panel-body">
-                            <form>
+                            <form action="/Account/Register" method="post">
+                                @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label" for="role"></label>
                                     <select class="form-control col-sm-10 fm" id="role" type="role" placeholder="" >
@@ -79,24 +80,24 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="fa fa-envelope col-sm-2 control-label" for="email"></label>
-                                    <input class="form-control col-sm-10 fm" id="email" type="email" placeholder="Почта" />
+                                    <input class="form-control col-sm-10 fm" id="email" name="Email" type="email" placeholder="Почта" />
                                 </div>
                                 <div class="form-group">
                                     <label class="fa fa-user col-sm-2 control-label" for="login"></label>
-                                    <input class="form-control col-sm-10 fm" id="login" type="text" placeholder="Логин" />
+                                    <input class="form-control col-sm-10 fm" id="login" name="UserName" type="text" placeholder="Логин" />
                                 </div>
 
                                 <div class="form-group">
                                     <label class="fa fa-key col-sm-2 control-label" for="password"></label>
-                                    <input class="form-control col-sm-10 fm" id="password" type="password" placeholder="Пароль" />
+                                    <input class="form-control col-sm-10 fm" id="password" name="Password" type="password" placeholder="Пароль" />
                                 </div>
                                 <div class="form-group">
                                     <label class="fa fa-key col-sm-2 control-label" for="password2"></label>
-                                    <input class="form-control col-sm-10 fm" id="password2" type="password" placeholder="Повторите пароль" />
+                                    <input class="form-control col-sm-10 fm" id="password2" name="ConfirmPassword" type="password" placeholder="Повторите пароль" />
                                 </div>
 
                                 <div class="form-group col-sm-10 col-lg-offset-2 fm">
-                                    <button class="button blue btn btn-default" style="font-size:18px;">Зарегистрироваться</button>
+                                    <input type="submit" class="button blue btn btn-default" value="Зарегистрироваться" style="font-size:18px;"/>
 
                                 </div>
                             </form>
