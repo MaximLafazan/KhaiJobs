@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KhaiJobs", "KhaiJobs\KhaiJobs.csproj", "{F2A5BEB1-8781-4C65-A573-F9188A58DAEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KhaiJobs.Entities", "KhaiJobs.Entities\KhaiJobs.Entities.csproj", "{7DCBBF8F-5A1B-4ECE-93C2-C96A262D7941}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KhaiJobs.DataAccess", "KhaiJobs.DataAccess\KhaiJobs.DataAccess.csproj", "{979A26F7-EB5D-469E-8B4E-118C63EC8E7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F2A5BEB1-8781-4C65-A573-F9188A58DAEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2A5BEB1-8781-4C65-A573-F9188A58DAEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2A5BEB1-8781-4C65-A573-F9188A58DAEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DCBBF8F-5A1B-4ECE-93C2-C96A262D7941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DCBBF8F-5A1B-4ECE-93C2-C96A262D7941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DCBBF8F-5A1B-4ECE-93C2-C96A262D7941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DCBBF8F-5A1B-4ECE-93C2-C96A262D7941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{979A26F7-EB5D-469E-8B4E-118C63EC8E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{979A26F7-EB5D-469E-8B4E-118C63EC8E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{979A26F7-EB5D-469E-8B4E-118C63EC8E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{979A26F7-EB5D-469E-8B4E-118C63EC8E7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

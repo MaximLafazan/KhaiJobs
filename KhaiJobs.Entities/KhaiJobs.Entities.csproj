@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7DCBBF8F-5A1B-4ECE-93C2-C96A262D7941}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KhaiJobs.Entities</RootNamespace>
+    <AssemblyName>KhaiJobs.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="aspnet_Applications.cs" />
+    <Compile Include="aspnet_Membership.cs" />
+    <Compile Include="aspnet_Paths.cs" />
+    <Compile Include="aspnet_PersonalizationAllUsers.cs" />
+    <Compile Include="aspnet_PersonalizationPerUser.cs" />
+    <Compile Include="aspnet_Profile.cs" />
+    <Compile Include="aspnet_Roles.cs" />
+    <Compile Include="aspnet_SchemaVersions.cs" />
+    <Compile Include="aspnet_Users.cs" />
+    <Compile Include="aspnet_WebEvent_Events.cs" />
+    <Compile Include="JobsDb_Companies.cs" />
+    <Compile Include="JobsDb_Countries.cs" />
+    <Compile Include="JobsDb_EducationLevels.cs" />
+    <Compile Include="JobsDb_ExperienceLevels.cs" />
+    <Compile Include="JobsDb_JobPostings.cs" />
+    <Compile Include="JobsDb_JobTypes.cs" />
+    <Compile Include="JobsDb_MyJobs.cs" />
+    <Compile Include="JobsDb_MyResumes.cs" />
+    <Compile Include="JobsDb_MySearches.cs" />
+    <Compile Include="JobsDb_Resumes.cs" />
+    <Compile Include="JobsDb_States.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagrams.cs" />
+    <Compile Include="vw_aspnet_Applications.cs" />
+    <Compile Include="vw_aspnet_MembershipUsers.cs" />
+    <Compile Include="vw_aspnet_Profiles.cs" />
+    <Compile Include="vw_aspnet_Roles.cs" />
+    <Compile Include="vw_aspnet_Users.cs" />
+    <Compile Include="vw_aspnet_UsersInRoles.cs" />
+    <Compile Include="vw_aspnet_WebPartState_Paths.cs" />
+    <Compile Include="vw_aspnet_WebPartState_Shared.cs" />
+    <Compile Include="vw_aspnet_WebPartState_User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
