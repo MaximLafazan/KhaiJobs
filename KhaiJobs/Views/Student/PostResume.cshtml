@@ -1,129 +1,132 @@
-﻿<div align=center>
-    <span ID="Label14" Runat="server" Text="Разместить резюме" SkinID="FormHeading"></span>
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div align=center>
+    <span id="Label14"  Text="Разместить резюме"></span>
 </div>
 <br />
 
 <contenttemplate>
-    <table width="100%" cellpadding="3">
+    <table  cellpadding="3">
         <tr>
             <td align="left" colspan="2" class="dataentryformlabelbig">
-                <span ID="Label15" Runat="server" SkinID="FormGroupLabel"
+                <span id="Label15"  
                            Text="Работа/должность"></span>
             </td>
         </tr>
         <tr>
             <td align="right" nowrap width="10%">
-                <span ID="Label1" Runat="server" Text="Наименование :"></span>
+                <span id="Label1"  Text="Наименование :"></span>
             </td>
             <td align="left">
-                <input type="text" ID="txtJobTitle" Runat="server"></input>
+                <input type="text" id="txtJobTitle" ></input>
             </td>
         </tr>
         <tr>
             <td align="right" nowrap width="10%">
-                <span ID="Label6" Runat="server" Text="Желаемый тип работы :"></span>
+                <span id="Label6"  Text="Желаемый тип работы :"></span>
             </td>
             <td align="left">
-                <select ID="ddlJobType" Runat="server"></select>
+                <select id="ddlJobType" ></select>
             </td>
         </tr>
         <tr>
             <td align="left" colspan="2" class="dataentryformlabelbig">
-                <span ID="Label16" Runat="server" SkinID="FormGroupLabel" Text="Месторасположение"></span>
+                <span id="Label16"  Text="Месторасположение"></span>
             </td>
         </tr>
         <tr>
             <td align="right" nowrap width="10%">
-                <span ID="Label2" Runat="server" Text="Город :"></span>
+                <span id="Label2"  Text="Город :"></span>
             </td>
             <td align="left">
-                <input type="text" ID="txtCity" Runat="server"></input>
+                <input type="text" id="txtCity" ></input>
             </td>
         </tr>
         <tr>
             <td align="right" nowrap width="10%">
-                <span ID="Label3" Runat="server" Text="Страна :"></span>
+                <span id="Label3"  Text="Страна :"></span>
             </td>
             <td align="left">
-                <select ID="ddlCountry" Runat="server" AutoPostBack="True"
+                <select id="ddlCountry"  AutoPostBack="True"
                         OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged"></select>
             </td>
         </tr>
         <tr>
             <td align="right" nowrap width="10%">
-                <span ID="Label4" Runat="server" Text="Район :"></span>
+                <span id="Label4"  Text="Район :"></span>
             </td>
             <td align="left">
-                <select ID="ddlState" Runat="server"></select>
+                <select id="ddlState" ></select>
             </td>
         </tr>
         <tr>
             <td align="right" nowrap width="10%">
-                <span ID="Label5" Runat="server" Text="Приемлем переезд :"></span>
+                <span id="Label5"  Text="Приемлем переезд :"></span>
             </td>
             <td align="left">
-                <select ID="ddlRelocationCountry" Runat="server"></select>
+                <select id="ddlRelocationCountry" ></select>
             </td>
         </tr>
         <tr>
             <td align="left" colspan="2" class="dataentryformlabelbig">
-                <span ID="Label17" Runat="server" SkinID="FormGroupLabel"
+                <span id="Label17"  
                       Text="Образование и опыт"></span>
                 &nbsp;&nbsp;
             </td>
         </tr>
         <tr>
             <td align="right" nowrap width="10%">
-                <span ID="Label7" Runat="server" Text="Образование :"></span>
+                <span id="Label7"  Text="Образование :"></span>
             </td>
             <td align="left">
-                <select ID="ddlEduLevel" Runat="server"></select>
+                <select id="ddlEduLevel" ></select>
             </td>
         </tr>
         <tr>
             <td align="right" nowrap width="10%">
-                <span ID="Label8" Runat="server" Text="Опыт :"></span>
+                <span id="Label8"  Text="Опыт :"></span>
             </td>
             <td align="left">
-                <select ID="ddlExpLevel" Runat="server"></select>
+                <select id="ddlExpLevel" ></select>
             </td>
         </tr>
         <tr>
             <td align="left" colspan="2" class="dataentryformlabelbig">
-                <span ID="Label9" Runat="server" SkinID="FormGroupLabel" Text="Описание (резюме) :"></span>
+                <span id="Label9"  Text="Описание (резюме) :"></span>
             </td>
         </tr>
         <tr>
             <td align="right" colspan="2" valign="top">
-                &nbsp;<input type="text" ID="txtResume" Runat="server" Rows="15" TextMode="MultiLine"
+                &nbsp;<input type="text" id="txtResume"  Rows="15" TextMode="MultiLine"
                              Width="98%">
                 <br />
             </td>
         </tr>
         <tr>
             <td align="left" colspan="2" valign="top" class="dataentryformlabelbig">
-                <span ID="Label10" Runat="server" SkinID="FormGroupLabel"
+                <span id="Label10"  
                       Text="Шаблон письма :"></span>
             </td>
         </tr>
         <tr>
             <td align="right" colspan="2" valign="top">
-                &nbsp;<input type="text" ID="txtCoveringLetter" Runat="server" Rows="15"
+                &nbsp;<input type="text" id="txtCoveringLetter"  Rows="15"
                              TextMode="MultiLine" Width="98%">
             </td>
         </tr>
         <tr>
             <td align="center" colspan="2" width="10%">
-                <input type="image" ID="ImageButton1" runat="server"
+                <input type="image" id="ImageButton1" 
                        ImageUrl="~/Images/SaveButton.gif" onclick="ImageButton1_Click" />
-                &nbsp;<input type="image" ID="ImageButton2" runat="server"
+                &nbsp;<input type="image" id="ImageButton2" 
                              ImageUrl="~/Images/CancelButton.gif" onclick="ImageButton2_Click" />
                 &nbsp;
             </td>
         </tr>
         <tr>
             <td align="center" colspan="2" width="10%">
-                <span ID="lblMsg" runat="server" SkinID="FormLabel"></span>
+                <span id="lblMsg"  ></span>
             </td>
         </tr>
         <tr>
@@ -133,7 +136,7 @@
 </contenttemplate>
 <progresstemplate>
     <center>
-        <img ID="Image1" runat="server" ImageUrl="~/images/progress.gif" />
+        <img id="Image1"  ImageUrl="~/images/progress.gif" />
     </center>
 
     <br />

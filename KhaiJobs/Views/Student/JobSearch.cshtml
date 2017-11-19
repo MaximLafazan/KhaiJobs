@@ -1,29 +1,29 @@
 ﻿
 <div align=center>
-    <span ID="Label14" Runat="server" Text="Поиск вакансии!!!" SkinID="FormHeading"></span>
+    <span ID="Label14"  Text="Поиск вакансии!!!" SkinID="FormHeading"></span>
     <br />
-    <span ID="lblJobCount" Runat="server" SkinID="Slogan"></span><br /><br />
+    <span ID="lblJobCount"  SkinID="Slogan"></span><br /><br />
 </div>
 
 <contenttemplate>
     <table style="width: 100%">
         <tr>
             <td align="right" valign="top">
-                <span ID="Label1" Runat="server" Text="Навыки :" SkinID="FormLabel"></span>
+                <span ID="Label1"  Text="Навыки :" SkinID="FormLabel"></span>
             </td>
             <td align="left">
-                <input type="text" ID="txtSkills" Runat="server"></input>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" Runat="server"
+                <input type="text" ID="txtSkills" ></input>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
                                             ControlToValidate="txtSkills" Display="Dynamic"
                                             ErrorMessage="Please enter skills to search for">*</asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td align="right" valign="top">
-                <span ID="Label3" Runat="server" Text="Страна :" SkinID="FormLabel"></span>
+                <span ID="Label3"  Text="Страна :" SkinID="FormLabel"></span>
             </td>
             <td align="left">
-                <!--<asp:DropDownList ID="ddlCountry" Runat="server" AutoPostBack="True"
+                <!--<asp:DropDownList ID="ddlCountry"  AutoPostBack="True"
                                   OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged">
                 </asp:DropDownList>-->
 
@@ -37,10 +37,10 @@
         </tr>
         <tr>
             <td align="right" valign="top">
-                <span ID="Label4" Runat="server" Text="Район :" SkinID="FormLabel"></span>
+                <span ID="Label4"  Text="Район :" SkinID="FormLabel"></span>
             </td>
             <td align="left">
-                <!--<asp:DropDownList ID="ddlState" Runat="server" AutoPostBack="True"
+                <!--<asp:DropDownList ID="ddlState"  AutoPostBack="True"
                                   onselectedindexchanged="ddlState_SelectedIndexChanged">
                 </asp:DropDownList>-->
                 <select>
@@ -53,28 +53,28 @@
         </tr>
         <tr>
             <td align="right" valign="top">
-                <span ID="Label2" Runat="server" Text="Город :" SkinID="FormLabel"></span>
+                <span ID="Label2"  Text="Город :" SkinID="FormLabel"></span>
             </td>
             <td align="left">
-                <input type="text" ID="txtCity" Runat="server" Enabled="False"></input>
+                <input type="text" ID="txtCity"  Enabled="False"></input>
             </td>
         </tr>
         <tr>
             <td align="center" colspan="2" valign="top">
-                <input type="image" ID="ImageButton1" runat="server"
+                <input type="image" ID="ImageButton1" 
                        ImageUrl="~/Images/SearchButton.gif" onclick="ImageButton1_Click" />
-                &nbsp;<input type="image" ID="ImageButton3" runat="server"
+                &nbsp;<input type="image" ID="ImageButton3" 
                              ImageUrl="~/Images/MyFavorite.gif" onclick="ImageButton3_Click" />
             </td>
         </tr>
         <tr>
             <td align="center" colspan="2" valign="top">
-                <span ID="lblMsg" runat="server" SkinID="FormLabel"></span>
+                <span ID="lblMsg"  SkinID="FormLabel"></span>
             </td>
         </tr>
         <tr>
             <td align="left" colspan="2" valign="top">
-                <asp:ValidationSummary ID="ValidationSummary1" Runat="server" />
+                <asp:ValidationSummary ID="ValidationSummary1"  />
             </td>
         </tr>
     </table>
@@ -82,12 +82,12 @@
 
 <progresstemplate>
     <center>
-        <img ID="Image1" runat="server" src="~/images/progress.gif" />
+        <img ID="Image1"  src="~/images/progress.gif" />
     </center>
 </progresstemplate>
 
 <contenttemplate>
-    <asp:GridView ID="GridView1" Runat="server" AllowPaging="True"
+    <asp:GridView ID="GridView1"  AllowPaging="True"
                   AutoGenerateColumns="False" DataKeyNames="PostingID"
                   OnPageIndexChanging="GridView1_PageIndexChanging"
                   OnRowCommand="GridView1_RowCommand" OnRowDataBound="GridView1_RowDataBound"
@@ -96,11 +96,11 @@
             <asp:templatefield HeaderText="Date">
 
                 <edititemtemplate>
-                    <input type="text" ID="TextBox1" runat="server" Text='<%# Bind("PostingDate") %>'>
+                    <input type="text" ID="TextBox1"  Text='<%# Bind("PostingDate") %>'>
                 </edititemtemplate>
 
                 <itemtemplate>
-                    <span ID="Label1" runat="server"
+                    <span ID="Label1" 
                           Text='<%# Bind("PostingDate", "{0:MM/dd/yyyy}") %>'></span>
                 </itemtemplate>
 

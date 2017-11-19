@@ -1,25 +1,25 @@
 ﻿    <div style="text-align: center">
         <div align="center">
-            <span ID="Label14" Runat="server" Text="Добавить/редактировать вакансию" SkinID="FormHeading"></span>
+            <span ID="Label14"  Text="Добавить/редактировать вакансию" SkinID="FormHeading"></span>
         </div>
         <br />
-        <asp:HyperLink ID="HyperLink2" Runat="server"
+        <asp:HyperLink ID="HyperLink2" 
                        NavigateUrl="~/employer/jobpostings.aspx" ImageUrl="~/Images/JobPostings.gif"></asp:HyperLink><br />
-        <span ID="Label6" runat="server" Text="все поля обязательные"></span>
+        <span ID="Label6"  Text="все поля обязательные"></span>
         <br />
         <br />
-        <asp:UpdateProgress ID="UpdateProgress1" runat="server"
+        <asp:UpdateProgress ID="UpdateProgress1" 
                             AssociatedUpdatePanelID="UpdatePanel1">
             <progresstemplate>
-                <img ID="Image1" runat="server" ImageUrl="~/images/progress.gif" />
+                <img ID="Image1"  ImageUrl="~/images/progress.gif" />
             </progresstemplate>
         </asp:UpdateProgress>
         <br />
         <br />
-        <hr ID="HyperLink1" Runat="server" NavigateUrl="~/employer/jobpostings.aspx">Перейти на страницу с вакансиями</hr>
+        <hr ID="HyperLink1"  NavigateUrl="~/employer/jobpostings.aspx">Перейти на страницу с вакансиями</hr>
         <br />
         <br />
-        <asp:ObjectDataSource ID="ObjectDataSource1" Runat="server" TypeName="JobSiteStarterKit.BOL.JobPosting"
+        <asp:ObjectDataSource ID="ObjectDataSource1"  TypeName="JobSiteStarterKit.BOL.JobPosting"
                               DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="GetPosting" UpdateMethod="Update"
                               DataObjectTypeName="JobSiteStarterKit.BOL.JobPosting">
             <DeleteParameters>
@@ -29,18 +29,18 @@
                 <asp:QueryStringParameter Name="id" QueryStringField="id" Type="Int32"></asp:QueryStringParameter>
             </SelectParameters>
         </asp:ObjectDataSource><br />
-        <asp:ObjectDataSource ID="ObjectDataSource2" Runat="server" TypeName="JobSiteStarterKit.BOL.State"
+        <asp:ObjectDataSource ID="ObjectDataSource2"  TypeName="JobSiteStarterKit.BOL.State"
                               SelectMethod="GetStates">
             <SelectParameters>
                 <asp:Parameter Type="Int32" Name="countryid"></asp:Parameter>
             </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="ObjectDataSource3" Runat="server" TypeName="JobSiteStarterKit.BOL.Country"
+        <asp:ObjectDataSource ID="ObjectDataSource3"  TypeName="JobSiteStarterKit.BOL.Country"
                               SelectMethod="SelectCountries">
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="ObjectDataSource4" Runat="server" SelectMethod="GetEducationLevels" TypeName="JobSiteStarterKit.BOL.EducationLevel">
+        <asp:ObjectDataSource ID="ObjectDataSource4"  SelectMethod="GetEducationLevels" TypeName="JobSiteStarterKit.BOL.EducationLevel">
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="ObjectDataSource5" Runat="server" SelectMethod="GetJobTypes" TypeName="JobSiteStarterKit.BOL.JobType">
+        <asp:ObjectDataSource ID="ObjectDataSource5"  SelectMethod="GetJobTypes" TypeName="JobSiteStarterKit.BOL.JobType">
         </asp:ObjectDataSource>
 
     </div>
