@@ -1,9 +1,12 @@
 ﻿body {
 }
+.content-main{
+    font-size: 16px;
+} 
 
 .job-item {
     border-top: #b6b6b6 solid 1px;
-    padding-bottom:30px;
+    padding-bottom: 30px;
 }
 .alljobs{
     margin-bottom:20px;
@@ -25,6 +28,7 @@
     margin:10px;
 }
 
-.contactsblock{
-    margin:15px;
+.contactsblock {
+    padding: 15px;
+    background:#e8d99c;
 }

@@ -1,46 +1,56 @@
-﻿    <div style="text-align: center">
-        <div align="center">
-            <span ID="Label14" Runat="server" Text="Добавить/редактировать вакансию" SkinID="FormHeading"></span>
-        </div>
-        <br />
-        <asp:HyperLink ID="HyperLink2" Runat="server"
-                       NavigateUrl="~/employer/jobpostings.aspx" ImageUrl="~/Images/JobPostings.gif"></asp:HyperLink><br />
-        <span ID="Label6" runat="server" Text="все поля обязательные"></span>
-        <br />
-        <br />
-        <asp:UpdateProgress ID="UpdateProgress1" runat="server"
-                            AssociatedUpdatePanelID="UpdatePanel1">
-            <progresstemplate>
-                <img ID="Image1" runat="server" ImageUrl="~/images/progress.gif" />
-            </progresstemplate>
-        </asp:UpdateProgress>
-        <br />
-        <br />
-        <hr ID="HyperLink1" Runat="server" NavigateUrl="~/employer/jobpostings.aspx">Перейти на страницу с вакансиями</hr>
-        <br />
-        <br />
-        <asp:ObjectDataSource ID="ObjectDataSource1" Runat="server" TypeName="JobSiteStarterKit.BOL.JobPosting"
-                              DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="GetPosting" UpdateMethod="Update"
-                              DataObjectTypeName="JobSiteStarterKit.BOL.JobPosting">
-            <DeleteParameters>
-                <asp:Parameter Name="original_JobPostingID" Type="Int32" />
-            </DeleteParameters>
-            <SelectParameters>
-                <asp:QueryStringParameter Name="id" QueryStringField="id" Type="Int32"></asp:QueryStringParameter>
-            </SelectParameters>
-        </asp:ObjectDataSource><br />
-        <asp:ObjectDataSource ID="ObjectDataSource2" Runat="server" TypeName="JobSiteStarterKit.BOL.State"
-                              SelectMethod="GetStates">
-            <SelectParameters>
-                <asp:Parameter Type="Int32" Name="countryid"></asp:Parameter>
-            </SelectParameters>
-        </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="ObjectDataSource3" Runat="server" TypeName="JobSiteStarterKit.BOL.Country"
-                              SelectMethod="SelectCountries">
-        </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="ObjectDataSource4" Runat="server" SelectMethod="GetEducationLevels" TypeName="JobSiteStarterKit.BOL.EducationLevel">
-        </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="ObjectDataSource5" Runat="server" SelectMethod="GetJobTypes" TypeName="JobSiteStarterKit.BOL.JobType">
-        </asp:ObjectDataSource>
+﻿@{Layout = "~/Views/Shared/_Company.cshtml";}
+<div class="container content-main">
+    <div class="row">
+        <div class="col-md-12">
+           <div><h3>Добавление вакансии</h3></div>
+            <div>
+                <form class="form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="title">Название вакансии</label>
+                        <input type="text" class="form-control" name="title" id="title"/>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="contactperson">Контактное лицо</label>
+                        <input type="text" class="form-control" name="contactperson" id="contactperson" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numberphone">Номер телефона</label>
+                        <input class="form-control" name="numberphone" id="numberphone" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="typejob">Тип занятости</label>
+                        <select class="form-control" name="typejob" id="typejob">
+                            <option>Полная</option>
+                            <option>Неполный день</option>
+                            <option>Удаленная</option>
+                            <option>Стажировка</option> 
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class=" control-label" for="levelEducation">Уровень образования</label>
+                        <select class="form-control " id="levelEducation" name="levelEducation">
+
+                            <option>Неполное высшее</option>
+                            <option>Полное высшее</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Описание вакансии</label>
+                        <textarea class="form-control" rows="15" name="description" id="description" ></textarea>
+                    </div>
+
+                    <button class="btn btn-primary">Сохранить</button>
+                    <button class="btn btn-default">Отменить</button>
+
+                </form>
+            </div>
+        </div>
     </div>
+
+</div>
