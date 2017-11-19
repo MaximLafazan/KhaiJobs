@@ -8,5 +8,14 @@ namespace KhaiJobs.Controllers
 {
     public class CompanyController : Controller
     {
+        public ActionResult AddEditPosting()
+        {
+            return View();
+        }
+
+        public ActionResult ConpanyProfile()
+        {
+            return View();
+        }
     }
 }

@@ -1,122 +1,88 @@
-﻿
-<div align=center>
-    <span ID="Label14"  Text="Поиск вакансии!!!" SkinID="FormHeading"></span>
-    <br />
-    <span ID="lblJobCount"  SkinID="Slogan"></span><br /><br />
+﻿@{Layout = "~/Views/Shared/_Student.cshtml";}
+@{
+    ViewBag.Title = "Поиск вакансий";
+}
+<title>@ViewBag.Title</title>
+<div class="container content-main">
+    <div class="row">
+        <div class="col-lg-9 ">
+            
+            
+            <div class="input-group"><input type="text" class="form-control" placeholder="Введите ключевые слова" /><span class="input-group-btn"><button class="btn ">Поиск</button></span></div>
+
+
+            <h1 class="alljobs">Все вакансии:</h1>
+
+
+            <table>
+                <tr>
+                    <td class="job-item">
+                        <a href="#" class="namejob">Junior + PHP developer</a>
+                        <a href="#" class="companyjob"><h4>BINTIME</h4></a>
+                        <div class="location"><i class="fa fa-globe"></i> Харьков</div>
+                        <div class="descrjob">We are product driven IT company with the focus on e-commerce & data transformation and syndication.
+We are looking for enthusiasts who passionate about a modern technological stack, large datasets processing and efficient algorithms for product-oriented environments.</div>
+                        <div class="pull-right">14.11.2017</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="job-item">
+                        <a href="#" class="namejob">Junior .NET developer</a>
+                        <a href="#" class="companyjob"><h4>LuckyWare Pro</h4></a>
+                        <div class="location"><i class="fa fa-globe"></i> Харьков</div>
+                        <div>LuckyWare Pro company works with well-known Companies from Germany, Switzerland, UK, US, and Canada. We are looking for a smart, hard working and self-motivated PHP developer to work on interesting projects!...</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="job-item">
+                        <a href="#" class="namejob">Junior Java developer</a>
+                        <a href="#" class="companyjob"><h4>AgileEngine</h4></a>
+                        <div class="location"><i class="fa fa-globe"></i> Харьков</div>
+                        <div>We are changing the way web UI testing is done and we think we are on to something very special. If you are not happy with a status quo, if you like to invent and find creative solutions...</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-3">
+            <div style="margin:15px;">
+                <div class="fitltr">Фильтр</div>
+                <form class="">
+                    <div class="form-group">
+                        Рубрика
+                        <select class="form-control">
+                            <option></option>
+                            <option>IT</option>
+                            <option>Недвижимость</option>
+                            <option>Наука</option>
+
+                        </select>
+                    </div>
+                        
+                    <div class="form-group">
+                        Вид занятости
+                        <select class="form-control">
+                            <option>Полная</option>
+                            <option>Неполная</option>
+                            <option>Стажировка</option>
+                            <option>Удаленная</option>
+                            <option>Проектная работа</option>
+
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        Уровень зпроботной платы (грн)
+                        от <input class="form-control" name="salary" />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block">Поиск</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
-<contenttemplate>
-    <table style="width: 100%">
-        <tr>
-            <td align="right" valign="top">
-                <span ID="Label1"  Text="Навыки :" SkinID="FormLabel"></span>
-            </td>
-            <td align="left">
-                <input type="text" ID="txtSkills" ></input>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
-                                            ControlToValidate="txtSkills" Display="Dynamic"
-                                            ErrorMessage="Please enter skills to search for">*</asp:RequiredFieldValidator>
-            </td>
-        </tr>
-        <tr>
-            <td align="right" valign="top">
-                <span ID="Label3"  Text="Страна :" SkinID="FormLabel"></span>
-            </td>
-            <td align="left">
-                <!--<asp:DropDownList ID="ddlCountry"  AutoPostBack="True"
-                                  OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged">
-                </asp:DropDownList>-->
-
-                <select>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td align="right" valign="top">
-                <span ID="Label4"  Text="Район :" SkinID="FormLabel"></span>
-            </td>
-            <td align="left">
-                <!--<asp:DropDownList ID="ddlState"  AutoPostBack="True"
-                                  onselectedindexchanged="ddlState_SelectedIndexChanged">
-                </asp:DropDownList>-->
-                <select>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td align="right" valign="top">
-                <span ID="Label2"  Text="Город :" SkinID="FormLabel"></span>
-            </td>
-            <td align="left">
-                <input type="text" ID="txtCity"  Enabled="False"></input>
-            </td>
-        </tr>
-        <tr>
-            <td align="center" colspan="2" valign="top">
-                <input type="image" ID="ImageButton1" 
-                       ImageUrl="~/Images/SearchButton.gif" onclick="ImageButton1_Click" />
-                &nbsp;<input type="image" ID="ImageButton3" 
-                             ImageUrl="~/Images/MyFavorite.gif" onclick="ImageButton3_Click" />
-            </td>
-        </tr>
-        <tr>
-            <td align="center" colspan="2" valign="top">
-                <span ID="lblMsg"  SkinID="FormLabel"></span>
-            </td>
-        </tr>
-        <tr>
-            <td align="left" colspan="2" valign="top">
-                <asp:ValidationSummary ID="ValidationSummary1"  />
-            </td>
-        </tr>
-    </table>
-</contenttemplate>
-
-<progresstemplate>
-    <center>
-        <img ID="Image1"  src="~/images/progress.gif" />
-    </center>
-</progresstemplate>
-
-<contenttemplate>
-    <asp:GridView ID="GridView1"  AllowPaging="True"
-                  AutoGenerateColumns="False" DataKeyNames="PostingID"
-                  OnPageIndexChanging="GridView1_PageIndexChanging"
-                  OnRowCommand="GridView1_RowCommand" OnRowDataBound="GridView1_RowDataBound"
-                  PageSize="3" Width="100%">
-        <columns>
-            <asp:templatefield HeaderText="Date">
-
-                <edititemtemplate>
-                    <input type="text" ID="TextBox1"  Text='<%# Bind("PostingDate") %>'>
-                </edititemtemplate>
-
-                <itemtemplate>
-                    <span ID="Label1" 
-                          Text='<%# Bind("PostingDate", "{0:MM/dd/yyyy}") %>'></span>
-                </itemtemplate>
-
-            </asp:templatefield>
-            <asp:boundfield DataField="Title" HeaderText="Название" SortExpression="title">
-            </asp:boundfield>
-            <asp:boundfield DataField="City" HeaderText="Месторасположение" SortExpression="city">
-            </asp:boundfield>
-            <asp:boundfield DataField="companyname" HeaderText="Компания" ShowHeader="False"
-                            SortExpression="companyname">
-            </asp:boundfield>
-            <asp:buttonfield CommandName="viewdetails" ButtonType="Image"
-                             ImageUrl="~/Images/ShowDetails.gif">
-                <itemstyle wrap="False" />
-            </asp:buttonfield>
-        </columns>
-    </asp:GridView>
-</contenttemplate>
-<br />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="~/Content/jobs.css" rel="stylesheet" />

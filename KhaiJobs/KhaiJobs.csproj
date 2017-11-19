@@ -189,8 +189,31 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\animate.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css-app-green.css" />
+    <Content Include="Content\css-app-orange.css" />
+    <Content Include="Content\css-app-purple.css" />
+    <Content Include="Content\css-app-red.css" />
+    <Content Include="Content\css-app-yellow.css" />
+    <Content Include="Content\css-app.css" />
+    <Content Include="Content\css-index-green.css" />
+    <Content Include="Content\css-index-orange.css" />
+    <Content Include="Content\css-index-purple.css" />
+    <Content Include="Content\css-index-red.css" />
+    <Content Include="Content\css-index-yellow.css" />
+    <Content Include="Content\css-index.css" />
+    <Content Include="Content\css-intro.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\jobs.css" />
+    <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\owl.theme.css" />
+    <Content Include="Content\slideMunu.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -217,9 +240,12 @@
     <Content Include="images\screenshot.jpg" />
     <Content Include="images\slider1.jpg" />
     <Content Include="images\slider3.jpg" />
+    <Content Include="images\studmain.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="images\Thumbs.db" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\ekko-lightbox-min.js" />
@@ -240,6 +266,9 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Company\AddEditPosting.cshtml" />
     <Content Include="Views\Company\ConpanyProfile.cshtml" />
+    <Content Include="Views\Shared\_User.cshtml" />
+    <Content Include="Views\Shared\_Student.cshtml" />
+    <Content Include="Views\Shared\_Company.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
@@ -259,6 +288,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Student\PostResume.cshtml" />
     <Content Include="Views\Student\ViewJobPosting.cshtml" />
   </ItemGroup>
