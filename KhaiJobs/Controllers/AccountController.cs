@@ -78,25 +78,20 @@ namespace KhaiJobs.Controllers
             if (user != null)
             {
                 await SignInAsync(user, model.RememberMe);
+                if (string.IsNullOrEmpty(returnUrl))
+                {
+                    if (UserManager.GetRoles(user.Id).FirstOrDefault() == "Student")
+                    {
+                        return RedirectToAction("StudentProfile", "Student");
+                    }
+                    if (UserManager.GetRoles(user.Id).FirstOrDefault() == "Company")
+                    {
+                        return RedirectToAction("CompanyProfile", "Company");
+                    }
+                }
                 return RedirectToLocal(returnUrl);
             }
-            return View(model);//SignInManager = new ApplicationSignInManager(new ApplicationUserManager(new UserStore<ApplicationUser>()), HttpContext.GetOwinContext().Authentication);
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            //switch (result)
-            //{
-            //    case SignInStatus.Success:
-            //        return RedirectToLocal(returnUrl);
-            //    case SignInStatus.LockedOut:
-            //        return View("Lockout");
-            //    case SignInStatus.RequiresVerification:
-            //        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-            //    case SignInStatus.Failure:
-            //    default:
-            //        ModelState.AddModelError("", "Invalid login attempt.");
-            //        return View(model);
-            //}
+            return View(model);
         }
 
         //
@@ -159,9 +154,10 @@ namespace KhaiJobs.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                var roleResult = UserManager.AddToRole(user.Id, model.Role);
+                if (result.Succeeded && roleResult.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
@@ -170,7 +166,14 @@ namespace KhaiJobs.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    if (UserManager.GetRoles(user.Id).FirstOrDefault() == "Student")
+                    {
+                        return RedirectToAction("StudentProfile", "Student");
+                    }
+                    if (UserManager.GetRoles(user.Id).FirstOrDefault() == "Company")
+                    {
+                        return RedirectToAction("CompanyProfile", "Company");
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

@@ -13,7 +13,7 @@ namespace KhaiJobs.Controllers
             return View();
         }
 
-        public ActionResult ConpanyProfile()
+        public ActionResult CompanyProfile()
         {
             return View();
         }

@@ -51,8 +51,14 @@
                         <li><a href="#">Вакансии</a></li>
                         <li><a href="#">Избранное</a></li>
                         <li><a href="#">Резюме</a></li>
-                        <li><a href="#">Моя компания</a></li>
-
+                        <li><a href="@Url.Action("CompanyProfile","Company")">@User.Identity.Name</a></li>
+                        <li>
+                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", style = "padding-top: 15px" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a id="logout" href="javascript:document.getElementById('logoutForm').submit()">Выход</a>
+                            }
+                        </li>
                     </ul>
                     
                     

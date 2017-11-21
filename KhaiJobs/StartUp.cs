@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using KhaiJobs.DataAccess;
+using KhaiJobs.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
@@ -16,6 +19,7 @@ namespace KhaiJobs
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            ApplicationDbContext context = new ApplicationDbContext();
         }
 
         public void ConfigureAuth(IAppBuilder app)

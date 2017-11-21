@@ -279,7 +279,7 @@
     <Content Include="Scripts\wow.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Company\AddEditPosting.cshtml" />
-    <Content Include="Views\Company\ConpanyProfile.cshtml" />
+    <Content Include="Views\Company\CompanyProfile.cshtml" />
     <Content Include="Views\Shared\_User.cshtml" />
     <Content Include="Views\Shared\_Student.cshtml" />
     <Content Include="Views\Shared\_Company.cshtml" />
@@ -304,10 +304,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\User\Register.cshtml" />
-    <Content Include="Views\Student\PostResume.cshtml" />
+    <Content Include="Views\Student\StudentProfile.cshtml" />
     <Content Include="Views\Student\ViewJobPosting.cshtml" />
   </ItemGroup>
   <ItemGroup>

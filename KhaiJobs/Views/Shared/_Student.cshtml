@@ -47,7 +47,14 @@
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Вакансии", "JobSearch", "Student")</li>
                         <li>@Html.ActionLink("Избранное", "MyFavorites", "Student")</li>                        
-                        <li class=""  style="color:darkgray">@Html.ActionLink("Петр Иванов", "PostResume", "Student")</li>
+                        <li><a href="@Url.Action("StudentProfile", "Student")">@User.Identity.Name</a></li>
+                        <li>
+                            @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", style = "padding-top: 15px"}))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a id="logout" href="javascript:document.getElementById('logoutForm').submit()">Выход</a>
+                            }
+                        </li>
                     </ul>
                 </div>
                 

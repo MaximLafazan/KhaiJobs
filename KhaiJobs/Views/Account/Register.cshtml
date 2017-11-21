@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Register";
+    Layout = null;
 }
 <!DOCTYPE html>
 <html>
@@ -71,10 +72,10 @@
                                 @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label" for="role"></label>
-                                    <select class="form-control col-sm-10 fm" id="role" type="role" placeholder="" >
+                                    <select class="form-control col-sm-10 fm" id="role" name="Role" type="role" placeholder="" >
                                     
-                                        <option>Соискатель</option>
-                                        <option>Работодатель</option>
+                                        <option value="Student">Соискатель</option>
+                                        <option value="Company">Работодатель</option>
 
                                     </select>
                                 </div>

@@ -20,7 +20,7 @@ namespace KhaiJobs.Controllers
         {
             return View();
         }
-        public ActionResult PostResume()
+        public ActionResult StudentProfile()
         {
             return View();
         }
