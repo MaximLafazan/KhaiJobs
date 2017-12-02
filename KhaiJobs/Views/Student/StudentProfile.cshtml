@@ -1,114 +1,111 @@
-﻿@{Layout = "~/Views/Shared/_Student.cshtml";}
+﻿@model KhaiJobs.ViewModels.StudentProfileViewModel
 @{
+    Layout = "~/Views/Shared/_Student.cshtml";
     ViewBag.Title = "Добавить резюме";
 }
-<title>@ViewBag.Title</title>
+@*<title>@ViewBag.Title</title>*@
 <div class="container content-main">
     <div class="row">
         <div class="col-lg-12 ">
             <h2>Добавление/редактирование резюме</h2>
             <div class="alert alert-info">Работа/должность</div>
             <div class="form-group">
+                <input type="hidden" id="id" value="@Model.Profile.id">
                 <label class="control-label" for="name">Наименование</label>
-                <input class="form-control" id="name" type="text" placeholder="Название вакансии" />
+                <input class="form-control" id="name" type="text" placeholder="Название вакансии" value="@Model.Profile.name"/>
             </div>
 
             <div class="form-group">
-                <label class=" control-label" for="typejob">Желаемый тип работы</label>
-                <select class="form-control " id="typejob" placeholder="Тип работы">
-                    <option>Полная занятость</option>
-                    <option>Неполная занятость</option>
-                    <option>Стажировка/практика</option>
-                    <option>Удаленная работа</option>
-                    <option>Проектная работа</option>
+                <label class="control-label" for="typejob">Желаемый тип работы</label>
+                <select class="form-control " id="typejob" placeholder="Тип работы" name="job_type">
+                    @foreach (var type in Model.job_type)
+                    {
+                        <option>@type.name</option>
+                    }                    
                 </select>
             </div>
             <div class="alert alert-info section-padding">Месторасположение</div>
 
             <div class="form-group">
-                <label class=" control-label" for="city">Город</label>
-                <select class="form-control " id="city" name="city">
+                <label class="control-label" for="city">Город</label>
+                <input class="form-control" id="city" type="text" value="@Model.Profile.city" />
+                @*<select class="form-control " id="city" name="city">
                     <option>Киев</option>
                     <option>Харьков</option>
                     <option>Львов</option>
-                    <option>Одесса</option>
-                </select>
+                    <option>Одесса</option>                    
+                </select>*@
             </div>
             <div class="form-group">
-                <label class=" control-label" for="relocate">Возможность переезда</label>
-                <select class="form-control " id="relocate" name="relocate">
-                    <option>Да</option>
-                    <option>Нет</option>
-
-                </select>
+                <label class="control-label" for="city">Страна</label>
+                <input class="form-control" id="city" type="text" value="@Model.Profile.country" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="relocate">Возможность переезда</label>
+                <input class="form-control-lg" type="radio" name="relocate" value="true" />Да
+                <input class="form-control-lg" type="radio" name="relocate" value="false" />Нет
             </div>
             <div class="alert alert-info section-padding">Образование и опыт</div>
             <div class="form-group">
-                <label class=" control-label" for="levelEducation">Уровень образования</label>
-                <select class="form-control " id="levelEducation" name="levelEducation">
-
-                    <option>Неполное высшее</option>
-                    <option>Полное высшее</option>
-
+                <label class="control-label" for="levelEducation">Уровень образования</label>
+                <select class="form-control " id="levelEducation" name="education_level">
+                    @foreach (var educationLevel in Model.education_levels)
+                    {
+                        <option>@educationLevel.name</option>
+                    } 
                 </select>
             </div>
             <div class="form-group">
-                <label class=" control-label" for="levelExp">Опыт</label>
-                <select class="form-control " id="levelExp" name="levelExp">
-
-                    <option>Без опыта</option>
-                    <option>Менее пол года</option>
-                    <option>Пол года - 1 год </option>
-                    <option>Более 1 года</option>
-                    <option>Более 2 года</option>
-                    <option>Более 3 года</option>
-                    <option>Более 4 года</option>
-                    <option>Более 5 года</option>
-
+                <label class="control-label" for="levelExp">Опыт</label>
+                <select class="form-control " id="levelExp" name="experience_level">
+                    @foreach (var experienceLevel in Model.experience_levels)
+                    {
+                        <option>@experienceLevel.name</option>
+                    }
                 </select>
             </div>
 
-            <div class="alert alert-info section-padding">Навыки и знания</div>
-            <div class="form-group">
-                <label class=" control-label" for="skill">Навыки</label>
+            <div class="alert alert-info section-padding hidden">Навыки и знания</div>
+            <div class="form-group hidden" >
+                <label class="control-label" for="skill">Навыки</label>
                 <input class="form-control" id="skill" name="skill" />
                 <div id="skills">
                     <label class="control-label">
                         C#
-                        <input class=" form-control-lg" type="radio" name="C#" value="1" />1
-                        <input class=" form-control-lg" type="radio" name="C#" value="2" />2
-                        <input class=" form-control-lg" type="radio" name="C#" value="3" />3
-                        <input class=" form-control-lg" type="radio" name="C#" value="4" />4
-                        <input class=" form-control-lg" type="radio" name="C#" value="5" />5
+                        <input class="form-control-lg" type="radio" name="C#" value="1" />1
+                        <input class="form-control-lg" type="radio" name="C#" value="2" />2
+                        <input class="form-control-lg" type="radio" name="C#" value="3" />3
+                        <input class="form-control-lg" type="radio" name="C#" value="4" />4
+                        <input class="form-control-lg" type="radio" name="C#" value="5" />5
                     </label>
                 </div>
             </div>
-            <div class="form-group">
-                <label class=" control-label" for="knowledge">Знания</label>
+            <div class="form-group hidden">
+                <label class="control-label" for="knowledge">Знания</label>
                 <input class="form-control" id="knowledge" name="knowledge" />
                 <div id="knowledges">
                     <label class="control-label">
-                        ООП 
-                        <input class=" form-control-lg" type="radio" name="knowledge1" value="1" />1
-                        <input class=" form-control-lg" type="radio" name="knowledge1" value="2" />2
-                        <input class=" form-control-lg" type="radio" name="knowledge1" value="3" />3
-                        <input class=" form-control-lg" type="radio" name="knowledge1" value="4" />4
-                        <input class=" form-control-lg" type="radio" name="knowledge1" value="5" />5
+                        ООП
+                        <input class="form-control-lg" type="radio" name="knowledge1" value="1" />1
+                        <input class="form-control-lg" type="radio" name="knowledge1" value="2" />2
+                        <input class="form-control-lg" type="radio" name="knowledge1" value="3" />3
+                        <input class="form-control-lg" type="radio" name="knowledge1" value="4" />4
+                        <input class="form-control-lg" type="radio" name="knowledge1" value="5" />5
                     </label>
                 </div>
             </div>
-            <div class="alert alert-info section-padding">Личностные качества</div>
-            <div class="form-group">
-                <label class=" control-label" for="quality">Качество</label>
+            <div class="alert alert-info section-padding hidden">Личностные качества</div>
+            <div class="form-group hidden">
+                <label class="control-label" for="quality">Качество</label>
                 <input class="form-control" id="quality" name="quality" />
                 <div id="qualities">
                     <label class="control-label">
                         Исполнительность
-                        <input class=" form-control-lg" type="radio" name="quality1" value="1" />1
-                        <input class=" form-control-lg" type="radio" name="quality1" value="2" />2
-                        <input class=" form-control-lg" type="radio" name="quality1" value="3" />3
-                        <input class=" form-control-lg" type="radio" name="quality1" value="4" />4
-                        <input class=" form-control-lg" type="radio" name="quality1" value="5" />5
+                        <input class="form-control-lg" type="radio" name="quality1" value="1" />1
+                        <input class="form-control-lg" type="radio" name="quality1" value="2" />2
+                        <input class="form-control-lg" type="radio" name="quality1" value="3" />3
+                        <input class="form-control-lg" type="radio" name="quality1" value="4" />4
+                        <input class="form-control-lg" type="radio" name="quality1" value="5" />5
                     </label>
                 </div>
             </div>
@@ -125,6 +122,6 @@
 <style>
     input[type='radio'] {
         transform: scale(2);
-        margin: 10px;
+                    margin: 10px;
     }
 </style>

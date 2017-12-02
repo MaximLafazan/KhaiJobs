@@ -18,6 +18,14 @@ namespace KhaiJobs.Entities
         }
 
         public int id { get; set; }
+        public string name { get; set; }
+        public job_types job_type { get; set; }
+        public string city { get; set; }
+        public string country { get; set; }
+        public bool is_relocate { get; set; }
+        public education_levels education_level { get; set; }
+        public experience_levels experience_level { get; set; }
+        public string description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<position_resumes> position_resumes { get; set; }
