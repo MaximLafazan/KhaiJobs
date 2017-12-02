@@ -1,0 +1,82 @@
+﻿@{Layout = "~/Views/Shared/_Company.cshtml";}
+@{Layout = "~/Views/Shared/_Student.cshtml";}
+@{
+    ViewBag.Title = "Поиск резюме";
+}
+<title>@ViewBag.Title</title>
+<div class="container content-main">
+    <div class="row">
+        <div class="col-lg-9 ">
+
+
+            <div class="input-group"><input type="text" class="form-control" placeholder="Введите ключевые слова" /><span class="input-group-btn"><button class="btn ">Поиск</button></span></div>
+
+
+            <h1 class="alljobs">Все Резюме:</h1>
+
+
+            <table width="100%">
+                <tr>
+                    <td class="job-item">
+                        <a href="#" class="namejob">Junior + PHP developer</a>
+                        <a href="#" class="studentname"><h4>Иван Петров</h4></a>
+                        <div class="location"><i class="fa fa-globe"></i> Харьков</div>
+                        
+                        <div class="pull-right">14.11.2017</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="job-item">
+                        <a href="#" class="namejob">Junior .NET developer</a>
+                        <a href="#" class="studentname"><h4>Анастасия Макарова</h4></a>
+                        <div class="location"><i class="fa fa-globe"></i> Харьков</div>
+                        
+                        <div class="pull-right">30.11.2017</div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="col-lg-3">
+            <div style="margin:15px;">
+                <div class="fitltr">Фильтр</div>
+                <form class="">
+                    <div class="form-group">
+                        Рубрика
+                        <select class="form-control">
+                            <option></option>
+                            <option>IT</option>
+                            <option>Недвижимость</option>
+                            <option>Наука</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        Вид занятости
+                        <select class="form-control">
+                            <option>Полная</option>
+                            <option>Неполная</option>
+                            <option>Стажировка</option>
+                            <option>Удаленная</option>
+                            <option>Проектная работа</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        Уровень зпроботной платы (грн)
+                        от <input class="form-control" name="salary" />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block">Поиск</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="~/Content/jobs.css" rel="stylesheet" />

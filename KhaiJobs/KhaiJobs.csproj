@@ -286,6 +286,11 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Company\JobPostings.cshtml" />
+    <Content Include="Views\Company\ViewResume.cshtml" />
+    <Content Include="Views\Company\ResumeSearch.cshtml" />
+    <Content Include="Views\Company\MyFavorites.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
     <None Include="Views\Student\JobSearch.cshtml" />
     <None Include="Views\Student\MyFavorites.cshtml" />
     <Content Include="Web.config">

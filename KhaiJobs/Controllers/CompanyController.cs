@@ -17,5 +17,27 @@ namespace KhaiJobs.Controllers
         {
             return View();
         }
+
+        public ActionResult JobPostings()
+        {
+            return View();
+        }
+
+        public ActionResult MyFavorites()
+        {
+            return View();
+        }
+
+        public ActionResult ResumeSearch()
+        {
+            return View();
+        }
+
+        public ActionResult ViewResume()
+        {
+            return View();
+        }
+
+
     }
 }
