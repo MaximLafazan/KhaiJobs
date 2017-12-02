@@ -287,6 +287,25 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Company\AddEditPosting.cshtml" />
+    <Content Include="Views\Company\CompanyProfile.cshtml" />
+    <Content Include="Views\Shared\_User.cshtml" />
+    <Content Include="Views\Shared\_Student.cshtml" />
+    <Content Include="Views\Shared\_Company.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Company\JobPostings.cshtml" />
+    <Content Include="Views\Company\ViewResume.cshtml" />
+    <Content Include="Views\Company\ResumeSearch.cshtml" />
+    <Content Include="Views\Company\MyFavorites.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <None Include="Views\Student\JobSearch.cshtml" />
+    <None Include="Views\Student\MyFavorites.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
