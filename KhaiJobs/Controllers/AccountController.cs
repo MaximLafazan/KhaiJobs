@@ -159,7 +159,7 @@ namespace KhaiJobs.Controllers
                 var roleResult = UserManager.AddToRole(user.Id, model.Role);
                 if (result.Succeeded && roleResult.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    await SignInAsync(user, false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
