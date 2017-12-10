@@ -4,7 +4,6 @@ namespace KhaiJobs.Entities
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("public.knowleges")]
     public partial class knowlege
@@ -14,5 +13,6 @@ namespace KhaiJobs.Entities
         public int? id_knowleges_categories { get; set; }
 
         public virtual knowleges_categories knowleges_categories { get; set; }
+        public string name { get; set; }
     }
 }

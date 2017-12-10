@@ -18,5 +18,6 @@ namespace KhaiJobs.Entities
         public virtual students_proffessional_competences students_proffessional_competences { get; set; }
 
         public virtual tutor tutor { get; set; }
+        public DateTime ApproveDate { get; set; }
     }
 }

@@ -4,7 +4,6 @@ namespace KhaiJobs.Entities
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("public.tutors")]
     public partial class tutor
@@ -23,5 +22,11 @@ namespace KhaiJobs.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<proffessional_competences_approves> proffessional_competences_approves { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string patronymic { get; set; }
+
+        public List<discipline> disciplines { get; set; }
+
     }
 }

@@ -4,7 +4,6 @@ namespace KhaiJobs.Entities
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("public.vacancies_personal_competences")]
     public partial class vacancies_personal_competences
