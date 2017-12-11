@@ -4,7 +4,6 @@ namespace KhaiJobs.Entities
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("public.skills_categories")]
     public partial class skills_categories
@@ -19,5 +18,7 @@ namespace KhaiJobs.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<skill> skills { get; set; }
+        public string name { get; set; }
+
     }
 }

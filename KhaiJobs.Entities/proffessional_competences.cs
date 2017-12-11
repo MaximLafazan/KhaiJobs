@@ -23,5 +23,7 @@ namespace KhaiJobs.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vacancies_proffessional_competences> vacancies_proffessional_competences { get; set; }
+        public string name { get; set; }
+
     }
 }

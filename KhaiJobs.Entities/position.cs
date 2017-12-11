@@ -4,7 +4,6 @@ namespace KhaiJobs.Entities
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("public.positions")]
     public partial class position
@@ -23,5 +22,8 @@ namespace KhaiJobs.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vacancy> vacancies { get; set; }
+        public string name { get; set; }
+        public string desdescription { get; set; }
+
     }
 }

@@ -4,7 +4,6 @@ namespace KhaiJobs.Entities
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("public.proffessional_competences_levels")]
     public partial class proffessional_competences_levels
@@ -23,5 +22,7 @@ namespace KhaiJobs.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vacancies_proffessional_competences> vacancies_proffessional_competences { get; set; }
+        public int level { get; set; }
+        public string name { get; set; }
     }
 }
