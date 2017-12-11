@@ -1,52 +1,61 @@
-﻿@{Layout = "~/Views/Shared/_Company.cshtml";}
+﻿@model KhaiJobs.ViewModels.VacancyViewModel
+@{Layout = "~/Views/Shared/_Company.cshtml";}
 <div class="container content-main">
     <div class="row">
         <div class="col-md-12">
            <div><h3>Добавление вакансии</h3></div>
             <div>
-                <form class="form" action="#" method="post">
+                <form id="addEditPostingForm" class="form" action="/Company/AddEditPosting" method="post">
+                    <input type="hidden" value="@Model.Vacancy.id" name="id"/>                    
                     <div class="form-group">
-                        <label for="title">Название вакансии</label>
-                        <input type="text" class="form-control" name="title" id="title"/>
+                        <label for="name">Название вакансии</label>
+                        <input type="text" class="form-control" value="@Model.Vacancy.name" name="name" id="name"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="contactperson">Контактное лицо</label>
-                        <input type="text" class="form-control" name="contactperson" id="contactperson" />
+                        <label for="contact">Контактное лицо</label>
+                        <input type="text" class="form-control" value="@Model.Vacancy.contact" name="contact" id="contact" />
                     </div>
 
                     <div class="form-group">
-                        <label for="numberphone">Номер телефона</label>
-                        <input class="form-control" name="numberphone" id="numberphone" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="typejob">Тип занятости</label>
-                        <select class="form-control" name="typejob" id="typejob">
-                            <option>Полная</option>
-                            <option>Неполный день</option>
-                            <option>Удаленная</option>
-                            <option>Стажировка</option> 
+                        <label for="job_type">Тип занятости</label>
+                        <select class="form-control" name="job_type" id="job_type">
+                            @foreach (var type in Model.job_type)
+                            {
+                                var selected = type.id == Model.Vacancy.job_type.id ? "selected='selected'" : "";
+                                <option @selected value="@type.id">@type.name</option>
+                            }
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label class=" control-label" for="levelEducation">Уровень образования</label>
-                        <select class="form-control " id="levelEducation" name="levelEducation">
-
-                            <option>Неполное высшее</option>
-                            <option>Полное высшее</option>
-
+                        <label class="control-label" for="education_level">Уровень образования</label>
+                        <select class="form-control " id="education_level" name="education_level">
+                            @foreach (var educationLevel in Model.education_levels)
+                            {
+                                var selected = educationLevel.id == Model.Vacancy.education_level.id ? "selected='selected'" : "";
+                                <option @selected value="@educationLevel.id">@educationLevel.name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="experience_levels">Опыт</label>
+                        <select class="form-control " id="experience_levels" name="experience_level">
+                            @foreach (var experienceLevel in Model.experience_levels)
+                            {
+                                var selected = experienceLevel.id == Model.Vacancy.experience_level.id ? "selected='selected'" : "";
+                                <option @selected value="@experienceLevel.id">@experienceLevel.name</option>
+                            }
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="description">Описание вакансии</label>
-                        <textarea class="form-control" rows="15" name="description" id="description" ></textarea>
+                        <textarea class="form-control" rows="15" name="description" id="description" >@Model.Vacancy.description</textarea>
                     </div>
 
-                    <button class="btn btn-primary">Сохранить</button>
-                    <button class="btn btn-default">Отменить</button>
+                    <button class="btn btn-primary" onclick="$('#addEditPostingForm').submit();">Сохранить</button>
+                    <button class="btn btn-default" onclick="window.location.href = '/Company/AddEditPosting'">Отменить</button>
 
                 </form>
             </div>

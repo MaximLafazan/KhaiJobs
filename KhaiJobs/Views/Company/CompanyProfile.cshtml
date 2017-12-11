@@ -1,55 +1,52 @@
-﻿@{Layout = "~/Views/Shared/_Company.cshtml";}
+﻿@model KhaiJobs.Entities.company
+@{Layout = "~/Views/Shared/_Company.cshtml";}
 <div class="container content-main">
     <div>
         <h2>Изменить профиль вашей компании</h2>
     </div>
 
-    <form class="" action="" method="post">
+    <form id="companyProfileForm" class="" action="/Company/CompanyProfile" method="post">
+        <input type="hidden" value="@Model.id" name="id" />
         <div class="form-group">
-            <label for="title">Имя компании</label>
-            <input type="text" class="form-control" name="title" id="title" />
+            <label for="name">Имя компании</label>
+            <input type="text" class="form-control" value="@Model.name" name="name" id="name" />
         </div>
 
         <div class="form-group">
-            <label for="shortdescr">Краткий профиль</label>
-            <input type="text" class="form-control" name="shortdescr" id="shortdescr" />
+            <label for="description">Краткий профиль</label>
+            <input type="text" class="form-control" value="@Model.description" name="description" id="description" />
         </div>
 
         <div class="form-group">
-            <label for="urAdress">Юридический адрес</label>
-            <input type="text" class="form-control" name="urAdress" id="urAdress" />
-        </div>
-
-        <div class="form-group">
-            <label for="fizAdress">Физический адрес</label>
-            <input type="text" class="form-control" name="fizAdress" id="fizAdress" />
+            <label for="address">Адрес</label>
+            <input type="text" class="form-control" value="@Model.address" name="address" id="address" />
         </div>
 
         <div class="form-group">
             <label for="city">Город</label>
-            <input type="text" class="form-control" name="city" id="city" />
+            <input type="text" class="form-control" value="@Model.name" name="city" id="city" />
         </div>
 
         <div class="form-group">
-            <label for="numberPhone">Телефон</label>
-            <input type="text" class="form-control" name="numberPhone" id="numberPhone" />
+            <label for="country">Страна</label>
+            <input type="text" class="form-control" value="@Model.country" name="country" id="country" />
         </div>
 
         <div class="form-group">
-            <label for="faks">Факс</label>
-            <input type="text" class="form-control" name="faks" id="faks" />
+            <label for="phone">Телефон</label>
+            <input type="text" class="form-control" value="@Model.phone" name="phone" id="phone" />
         </div>
 
         <div class="form-group">
-            <label for="Email">Email</label>
-            <input type="text" class="form-control" name="Email" id="Email" />
+            <label for="email">Email</label>
+            <input type="text" class="form-control" value="@Model.email" name="email" id="email" />
         </div>
         <div class="form-group">
-            <label for="site">Web-сайт</label>
-            <input type="text" class="form-control" name="site" id="site" />
+            <label for="website_url">Web-сайт</label>
+            <input type="text" class="form-control" value="@Model.website_url" name="website_url" id="website_url" />
         </div>
-        <button class="btn-primary btn">Сохранить</button>
-        <button class="btn-default btn">Отменить</button>
+        <button class="btn-primary btn" onclick="$('#companyProfileForm').submit();">Сохранить</button>
+        <button class="btn-default btn" onclick="window.location.href='/Company/CompanyProfile'">Отменить</button>
     </form>
 
 

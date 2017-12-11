@@ -10,11 +10,8 @@ namespace KhaiJobs.Entities
     {
         public int id { get; set; }
 
-        [StringLength(50)]
-        public string user_name { get; set; }
-
         [StringLength(255)]
-        public string company_name { get; set; }
+        public string name { get; set; }
 
         [StringLength(255)]
         public string address { get; set; }
@@ -32,11 +29,13 @@ namespace KhaiJobs.Entities
         public string phone { get; set; }
 
         [StringLength(255)]
-        public string company_email { get; set; }
+        public string email { get; set; }
 
         [StringLength(255)]
         public string website_url { get; set; }
 
         public string description { get; set; }
+
+        public string company_id { get; set; }
     }
 }
