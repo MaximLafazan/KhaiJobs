@@ -6,114 +6,124 @@
 @*<title>@ViewBag.Title</title>*@
 <div class="container content-main">
     <div class="row">
-        <div class="col-lg-12 ">
-            <h2>Добавление/редактирование резюме</h2>
-            <div class="alert alert-info">Работа/должность</div>
-            <div class="form-group">
-                <input type="hidden" id="id" value="@Model.Profile.id">
-                <label class="control-label" for="name">Наименование</label>
-                <input class="form-control" id="name" type="text" placeholder="Название вакансии" value="@Model.Profile.name"/>
-            </div>
+        <form id="studentProfileForm" action="/Student/StudentProfile" method="post">
+            <div class="col-lg-12 ">
+                <h2>Добавление/редактирование резюме</h2>
+                <div class="alert alert-info">Работа/должность</div>
+                <div class="form-group">
+                    <input type="hidden" id="id" name="id" value="@Model.Profile.id">
+                    <label class="control-label" for="name">Наименование</label>
+                    <input class="form-control" id="name" name="name" type="text" placeholder="Название вакансии" value="@Model.Profile.name" />
+                </div>
 
-            <div class="form-group">
-                <label class="control-label" for="typejob">Желаемый тип работы</label>
-                <select class="form-control " id="typejob" placeholder="Тип работы" name="job_type">
-                    @foreach (var type in Model.job_type)
-                    {
-                        <option>@type.name</option>
-                    }                    
-                </select>
-            </div>
-            <div class="alert alert-info section-padding">Месторасположение</div>
+                <div class="form-group">
+                    <label class="control-label" for="job_type">Желаемый тип работы</label>
+                    <select class="form-control " id="job_type" placeholder="Тип работы" name="job_type">
+                        @foreach (var type in Model.job_type)
+                        {
+                            var selected = type.id == Model.Profile.job_type.id ? "selected='selected'" : "";
+                            <option @selected value="@type.id">@type.name</option>
+                        }
+                    </select>
+                </div>
+                <div class="alert alert-info section-padding">Месторасположение</div>
 
-            <div class="form-group">
-                <label class="control-label" for="city">Город</label>
-                <input class="form-control" id="city" type="text" value="@Model.Profile.city" />
-                @*<select class="form-control " id="city" name="city">
-                    <option>Киев</option>
-                    <option>Харьков</option>
-                    <option>Львов</option>
-                    <option>Одесса</option>                    
-                </select>*@
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="city">Страна</label>
-                <input class="form-control" id="city" type="text" value="@Model.Profile.country" />
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="relocate">Возможность переезда</label>
-                <input class="form-control-lg" type="radio" name="relocate" value="true" />Да
-                <input class="form-control-lg" type="radio" name="relocate" value="false" />Нет
-            </div>
-            <div class="alert alert-info section-padding">Образование и опыт</div>
-            <div class="form-group">
-                <label class="control-label" for="levelEducation">Уровень образования</label>
-                <select class="form-control " id="levelEducation" name="education_level">
-                    @foreach (var educationLevel in Model.education_levels)
+                <div class="form-group">
+                    <label class="control-label" for="city">Город</label>
+                    <input class="form-control" id="city" name="city" type="text" value="@Model.Profile.city" />
+                    @*<select class="form-control " id="city" name="city">
+                        <option>Киев</option>
+                        <option>Харьков</option>
+                        <option>Львов</option>
+                        <option>Одесса</option>
+                    </select>*@
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="city">Страна</label>
+                    <input class="form-control" id="city" name="country" type="text" value="@Model.Profile.country" />
+                </div>
+                <div class="form-group">
+                    @{var is_relocate = ""; var isnt_relocate = "checked=checked";}
+                    @if (Model.Profile.is_relocate)
                     {
-                        <option>@educationLevel.name</option>
-                    } 
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="levelExp">Опыт</label>
-                <select class="form-control " id="levelExp" name="experience_level">
-                    @foreach (var experienceLevel in Model.experience_levels)
-                    {
-                        <option>@experienceLevel.name</option>
+                        is_relocate = "checked=checked";
+                        isnt_relocate = "";
                     }
-                </select>
-            </div>
+                    <label class="control-label" for="relocate">Возможность переезда</label>
+                    <input class="form-control-lg" type="radio" @is_relocate name="is_relocate" value="true" />Да
+                    <input class="form-control-lg" type="radio" @isnt_relocate name="is_relocate" value="false" />Нет
+                </div>
+                <div class="alert alert-info section-padding">Образование и опыт</div>
+                <div class="form-group">
+                    <label class="control-label" for="education_level">Уровень образования</label>
+                    <select class="form-control " id="education_level" name="education_level">
+                        @foreach (var educationLevel in Model.education_levels)
+                        {
+                            var selected = educationLevel.id == Model.Profile.education_level.id ? "selected='selected'" : "";
+                            <option @selected value="@educationLevel.id">@educationLevel.name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="experience_levels">Опыт</label>
+                    <select class="form-control " id="experience_levels" name="experience_level">
+                        @foreach (var experienceLevel in Model.experience_levels)
+                        {
+                            var selected = experienceLevel.id == Model.Profile.experience_level.id ? "selected='selected'" : "";
+                            <option @selected value="@experienceLevel.id">@experienceLevel.name</option>
+                        }
+                    </select>
+                </div>
 
-            <div class="alert alert-info section-padding hidden">Навыки и знания</div>
-            <div class="form-group hidden" >
-                <label class="control-label" for="skill">Навыки</label>
-                <input class="form-control" id="skill" name="skill" />
-                <div id="skills">
-                    <label class="control-label">
-                        C#
-                        <input class="form-control-lg" type="radio" name="C#" value="1" />1
-                        <input class="form-control-lg" type="radio" name="C#" value="2" />2
-                        <input class="form-control-lg" type="radio" name="C#" value="3" />3
-                        <input class="form-control-lg" type="radio" name="C#" value="4" />4
-                        <input class="form-control-lg" type="radio" name="C#" value="5" />5
-                    </label>
+                <div class="alert alert-info section-padding hidden">Навыки и знания</div>
+                <div class="form-group hidden">
+                    <label class="control-label" for="skill">Навыки</label>
+                    <input class="form-control" id="skill" name="skill" />
+                    <div id="skills">
+                        <label class="control-label">
+                            C#
+                            <input class="form-control-lg" type="radio" name="C#" value="1" />1
+                            <input class="form-control-lg" type="radio" name="C#" value="2" />2
+                            <input class="form-control-lg" type="radio" name="C#" value="3" />3
+                            <input class="form-control-lg" type="radio" name="C#" value="4" />4
+                            <input class="form-control-lg" type="radio" name="C#" value="5" />5
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group hidden">
+                    <label class="control-label" for="knowledge">Знания</label>
+                    <input class="form-control" id="knowledge" name="knowledge" />
+                    <div id="knowledges">
+                        <label class="control-label">
+                            ООП
+                            <input class="form-control-lg" type="radio" name="knowledge1" value="1" />1
+                            <input class="form-control-lg" type="radio" name="knowledge1" value="2" />2
+                            <input class="form-control-lg" type="radio" name="knowledge1" value="3" />3
+                            <input class="form-control-lg" type="radio" name="knowledge1" value="4" />4
+                            <input class="form-control-lg" type="radio" name="knowledge1" value="5" />5
+                        </label>
+                    </div>
+                </div>
+                <div class="alert alert-info section-padding hidden">Личностные качества</div>
+                <div class="form-group hidden">
+                    <label class="control-label" for="quality">Качество</label>
+                    <input class="form-control" id="quality" name="quality" />
+                    <div id="qualities">
+                        <label class="control-label">
+                            Исполнительность
+                            <input class="form-control-lg" type="radio" name="quality1" value="1" />1
+                            <input class="form-control-lg" type="radio" name="quality1" value="2" />2
+                            <input class="form-control-lg" type="radio" name="quality1" value="3" />3
+                            <input class="form-control-lg" type="radio" name="quality1" value="4" />4
+                            <input class="form-control-lg" type="radio" name="quality1" value="5" />5
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-primary" onclick="$('#studentProfileForm').submit()">Сохранить</button>
                 </div>
             </div>
-            <div class="form-group hidden">
-                <label class="control-label" for="knowledge">Знания</label>
-                <input class="form-control" id="knowledge" name="knowledge" />
-                <div id="knowledges">
-                    <label class="control-label">
-                        ООП
-                        <input class="form-control-lg" type="radio" name="knowledge1" value="1" />1
-                        <input class="form-control-lg" type="radio" name="knowledge1" value="2" />2
-                        <input class="form-control-lg" type="radio" name="knowledge1" value="3" />3
-                        <input class="form-control-lg" type="radio" name="knowledge1" value="4" />4
-                        <input class="form-control-lg" type="radio" name="knowledge1" value="5" />5
-                    </label>
-                </div>
-            </div>
-            <div class="alert alert-info section-padding hidden">Личностные качества</div>
-            <div class="form-group hidden">
-                <label class="control-label" for="quality">Качество</label>
-                <input class="form-control" id="quality" name="quality" />
-                <div id="qualities">
-                    <label class="control-label">
-                        Исполнительность
-                        <input class="form-control-lg" type="radio" name="quality1" value="1" />1
-                        <input class="form-control-lg" type="radio" name="quality1" value="2" />2
-                        <input class="form-control-lg" type="radio" name="quality1" value="3" />3
-                        <input class="form-control-lg" type="radio" name="quality1" value="4" />4
-                        <input class="form-control-lg" type="radio" name="quality1" value="5" />5
-                    </label>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary">Сохранить</button>
-            </div>
-        </div>
-        
+        </form>
     </div>
 </div>
 

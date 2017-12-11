@@ -26,6 +26,7 @@ namespace KhaiJobs.Entities
         public education_levels education_level { get; set; }
         public experience_levels experience_level { get; set; }
         public string description { get; set; }
+        public string student_id { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<position_resumes> position_resumes { get; set; }
