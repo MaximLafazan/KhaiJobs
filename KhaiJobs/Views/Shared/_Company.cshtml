@@ -50,7 +50,7 @@
                        
                         <li><a href="@Url.Action("AddEditPosting","Company")">Вакансии</a></li>
                         <li><a href="#">Избранное</a></li>
-                        <li><a href="#">Резюме</a></li>
+                        <li><a href="@Url.Action("ResumeSearch","Company")">Резюме</a></li>
                         <li><a href="@Url.Action("CompanyProfile","Company")">@User.Identity.Name</a></li>
                         <li>
                             @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", style = "padding-top: 15px" }))

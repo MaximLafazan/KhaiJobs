@@ -75,6 +75,7 @@ namespace KhaiJobs.Controllers
                 return View(model);
             }
             var user = await UserManager.FindAsync(model.Email, model.Password);
+             user = await UserManager.FindByEmailAsync(model.Email);
             if (user != null)
             {
                 await SignInAsync(user, model.RememberMe);
