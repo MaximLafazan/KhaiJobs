@@ -108,7 +108,7 @@ namespace KhaiJobs.Controllers
             model.Resumes = new List<student_profiles>();
             if (!string.IsNullOrEmpty(keyword))
             {
-                model.Resumes = context.student_profiles.Where(x => x.name.Contains(keyword)).ToList();
+                model.Resumes = context.student_profiles.Where(x => x.name.ToLower().Contains(keyword.ToLower())).ToList();
             }
             return View(model);
         }

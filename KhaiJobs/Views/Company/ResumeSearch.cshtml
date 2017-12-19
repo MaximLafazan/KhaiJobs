@@ -9,7 +9,7 @@
         <div class="col-lg-9 ">
 
 
-            <div class="input-group"><input type="text" class="form-control" placeholder="Введите ключевые слова" /><span class="input-group-btn"><button class="btn ">Поиск</button></span></div>
+            <div class="input-group"><form id="searchForm" action="/Company/ResumeSearch"><input type="text" name="keyword" class="form-control" placeholder="Введите ключевые слова" /></form><span class="input-group-btn"><button class="btn " onclick="$('#searchForm').submit();">Поиск</button></span></div>
 
             @if (Model.Resumes.Count > 0)
             {
@@ -66,7 +66,7 @@
                         от <input class="form-control" name="salary" />
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-block" onclick="window.location.href='Company/ResumeSearch'">Поиск</button>
+                        <button class="btn btn-primary btn-block" onclick="$('#searchForm').submit();">Поиск</button>
                     </div>
 
                 </form>

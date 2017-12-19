@@ -1,4 +1,5 @@
-﻿@{Layout = "~/Views/Shared/_Student.cshtml";}
+﻿@model KhaiJobs.ViewModels.VacancySearchViewModel
+@{Layout = "~/Views/Shared/_Student.cshtml";}
 @{
     ViewBag.Title = "Поиск вакансий";
 }
@@ -8,39 +9,32 @@
         <div class="col-lg-9 ">
             
             
-            <div class="input-group"><input type="text" class="form-control" placeholder="Введите ключевые слова" /><span class="input-group-btn"><button class="btn ">Поиск</button></span></div>
+            <div class="input-group">
+                <form id="searchForm" action="/Student/JobSearch">
+                    <input type="text" name="keyword" class="form-control" placeholder="Введите ключевые слова" />
+                </form>
+                <span class="input-group-btn"><button class="btn " onclick="$('#searchForm').submit();">Поиск</button></span>
+            </div>
 
-
-            <h1 class="alljobs">Все вакансии:</h1>
+            @if(Model.Vacancies.Count > 0)
+            {
+                <h1 class="alljobs">Все вакансии:</h1>
+            }
 
 
             <table>
-                <tr>
-                    <td class="job-item">
-                        <a href="#" class="namejob">Junior + PHP developer</a>
-                        <a href="#" class="companyjob"><h4>BINTIME</h4></a>
-                        <div class="location"><i class="fa fa-globe"></i> Харьков</div>
-                        <div class="descrjob">We are product driven IT company with the focus on e-commerce & data transformation and syndication.
-We are looking for enthusiasts who passionate about a modern technological stack, large datasets processing and efficient algorithms for product-oriented environments.</div>
-                        <div class="pull-right">14.11.2017</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="job-item">
-                        <a href="#" class="namejob">Junior .NET developer</a>
-                        <a href="#" class="companyjob"><h4>LuckyWare Pro</h4></a>
-                        <div class="location"><i class="fa fa-globe"></i> Харьков</div>
-                        <div>LuckyWare Pro company works with well-known Companies from Germany, Switzerland, UK, US, and Canada. We are looking for a smart, hard working and self-motivated PHP developer to work on interesting projects!...</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="job-item">
-                        <a href="#" class="namejob">Junior Java developer</a>
-                        <a href="#" class="companyjob"><h4>AgileEngine</h4></a>
-                        <div class="location"><i class="fa fa-globe"></i> Харьков</div>
-                        <div>We are changing the way web UI testing is done and we think we are on to something very special. If you are not happy with a status quo, if you like to invent and find creative solutions...</div>
-                    </td>
-                </tr>
+                @foreach (var vacancy in Model.Vacancies)
+                {
+                    <tr>
+                        <td class="job-item">
+                            <a href="#" class="namejob">@vacancy.name</a>
+                            <a href="#" class="companyjob"><h4>@(vacancy.company?.name)</h4></a>
+                            <div class="location"><i class="fa fa-globe"></i> @(vacancy.company?.city)</div>
+                            <div class="descrjob">@vacancy.description</div>
+                            <div class="pull-right">14.11.2017</div>
+                        </td>
+                    </tr>
+                }
             </table>
         </div>
         <div class="col-lg-3">
@@ -75,7 +69,7 @@ We are looking for enthusiasts who passionate about a modern technological stack
                         от <input class="form-control" name="salary" />
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-block">Поиск</button>
+                        <button class="btn btn-primary btn-block" onclick="$('#searchForm').submit();">Поиск</button>
                     </div>
                     
                 </form>

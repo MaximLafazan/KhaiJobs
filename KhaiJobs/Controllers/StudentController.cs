@@ -18,9 +18,16 @@ namespace KhaiJobs.Controllers
         {
             return View();
         }
-        public ActionResult JobSearch()
+        public ActionResult JobSearch(string keyword)
         {
-            return View();
+            var model = new VacancySearchViewModel();
+            model.Vacancies = new List<vacancy>();
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                var vacancies = context.vacancies.ToList();
+                model.Vacancies = context.vacancies.Where(x => x.name.ToLower().Contains(keyword.ToLower())).ToList();
+            }
+            return View(model);
         }
         public ActionResult MyFavorites()
         {
