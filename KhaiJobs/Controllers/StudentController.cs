@@ -13,6 +13,11 @@ namespace KhaiJobs.Controllers
     public class StudentController : Controller
     {
         MainContext context = new MainContext();
+
+        public ActionResult EditProfile()
+        {
+            return View();
+        }
         public ActionResult JobSearch()
         {
             return View();
@@ -25,6 +30,20 @@ namespace KhaiJobs.Controllers
         {
             return View();
         }
+        public ActionResult ResumePostings()
+        {
+            return View();
+        }
+        public ActionResult ViewProfile()
+        {
+            return View();
+        }
+        public ActionResult Competence()
+        {
+            return View();
+        }
+
+        
         [Authorize(Roles = "Student")]
         public ActionResult StudentProfile()
         {

@@ -1,0 +1,44 @@
+﻿@{Layout = "~/Views/Shared/_Student.cshtml";}
+@{
+    ViewBag.Title = "Просмотр моих резюме";
+}
+<title>@ViewBag.Title</title>
+<div class="container content-main">
+    <div class="row">
+        <div class="col-lg-12 ">
+
+            <h3 class="alljobs">Просмотр моих резюме</h3>
+
+            <table width="100%" class="table-striped">
+                <tr>
+                    <th>Название</th>
+                    <th>Код резюме</th>
+                    <th>Месторасположение</th>
+                    <th>Размещено</th>
+                    <th></th>
+
+                </tr>
+                <tr>
+                    <td>Junior Engineer</td>
+                    <td>00123</td>
+                    <td>Харьков</td>
+                    <td>Да</td>
+                    <td><a href="#">Изменить</a></td>
+
+                </tr>
+                <tr>
+                    <td>Middle Junior Engineer</td>
+                    <td>00146</td>
+                    <td>Харьков</td>
+                    <td>Нет</td>
+                    <td><a href="#">Изменить</a></td>
+
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="~/Content/jobs.css" rel="stylesheet" />

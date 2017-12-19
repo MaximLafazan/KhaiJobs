@@ -1,0 +1,43 @@
+﻿@{Layout = "~/Views/Shared/_Manager.cshtml";}
+@{
+    ViewBag.Title = "Список Преподавателей";
+}
+<title>@ViewBag.Title</title>
+<div class="container content-main">
+    <div class="row">
+        <div class="col-lg-12 ">
+            <div class="col-lg-6 ">
+                <h3 class="alljobs">Список Преподавателей</h3>
+            </div>
+            <div class="col-lg-6 ">
+                <button style="margin:8px;" class="btn btn-primary pull-right" onclick="window.location.href = '/Manager/AddTeacher'">Добавить</button>
+             </div>
+
+            <table width="100%" class="table-striped">
+                <tr>
+                    <th>Имя преподвателя</th>
+                    <th>Логин</th>
+                    <th>Email</th>
+                    <th>Действия</th>
+                </tr>
+                <tr>
+                    <td>Мария Ивановна Петрова</td>
+                    <td>tech1</td>
+                    <td>maria72@gmail.com</td>
+                    <td><a href="#">Изменить</a> | <a style="color:#ff0000" href="#">Удалить</a></td>
+                </tr>
+                <tr>
+                    <td>Мария Ивановна Петрова</td>
+                    <td>Jo3</td>
+                    <td>anna87@gmail.com</td>
+                    <td><a href="#">Изменить</a> | <a style="color:#ff0000" href="#">Удалить</a></td>
+                </tr>
+
+            </table>
+
+                </div>
+            </div>
+</div>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="~/Content/jobs.css" rel="stylesheet" />

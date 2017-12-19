@@ -1,0 +1,32 @@
+﻿@{Layout = "~/Views/Shared/_Student.cshtml";}
+@{
+    ViewBag.Title = "Просмотр Профиля";
+}
+<title>@ViewBag.Title</title>
+<div class="container content-main">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <h3 class="profile">Мой профиль</h3>
+
+            <p>
+                Имя : Антон
+            </p>
+            <p>
+                Фамилия : Иванов
+            </p> 
+            <p>
+                Email : jun@gmail.com
+            </p>
+            <p>
+                Телефон : 1234567890
+            </p>
+            <div>
+                <button class="btn btn-primary" onclick="window.location.href = '/Student/EditProfile'">Редактировать</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="~/Content/jobs.css" rel="stylesheet" />
