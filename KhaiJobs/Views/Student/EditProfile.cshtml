@@ -1,4 +1,5 @@
-﻿@{Layout = "~/Views/Shared/_Student.cshtml"; }
+﻿@model KhaiJobs.ViewModels.StudentProfileViewModel
+@{Layout = "~/Views/Shared/_Student.cshtml"; }
 @{
     ViewBag.Title = "EditProfile";
 }
@@ -10,19 +11,19 @@
     <form id="studentProfileForm" class="" action="/Student/EditProfile" method="post">
         <div class="form-group">
             <label from="firstName">Имя</label>
-            <input type="text" class="form-control" id="firstName" name="firstName" />
+            <input type="text" class="form-control" value="@Model.Profile.name" id="name" name="name" />
         </div>
         <div class="form-group">
             <label from="lastName">Фамилия</label>
-            <input type="text" class="form-control" id="lastName" name="lastName" />
+            <input type="text" class="form-control"  value="@Model.Profile.lastname" id="lastName" name="lastname" />
         </div>
         <div class="form-group">
             <label from="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" />
+            <input type="email" class="form-control"  value="@Model.Profile.email" id="email" name="email" />
         </div>
         <div class="form-group">
             <label from="numberPhone">Телефон</label>
-            <input type="tel" class="form-control" id="numberPhone" name="numberPhone" />
+            <input type="tel" class="form-control"  value="@Model.Profile.phone" id="phone" name="phone" />
         </div>
         <div class="form-group">
             <input class="btn btn-default" type="submit" value="Сохранить" />

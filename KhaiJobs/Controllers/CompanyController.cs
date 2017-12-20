@@ -102,9 +102,15 @@ namespace KhaiJobs.Controllers
             return View();
         }
 
-        public ActionResult ResumeSearch()
+        public ActionResult ResumeSearch(string keyword)
         {
-            return View();
+            var model = new ResumeSearchViewModel();
+            model.Resumes = new List<student_profiles>();
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                model.Resumes = context.student_profiles.Where(x => x.name.ToLower().Contains(keyword.ToLower())).ToList();
+            }
+            return View(model);
         }
 
         public ActionResult ViewResume()

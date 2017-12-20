@@ -9,7 +9,7 @@ namespace KhaiJobs.DataAccess
     public partial class MainContext : DbContext
     {
         public MainContext()
-            : base("name=MainContext1")
+            : base("name=MainContext")
         {
         }
 

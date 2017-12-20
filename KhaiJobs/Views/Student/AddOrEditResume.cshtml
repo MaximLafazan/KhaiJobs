@@ -21,7 +21,7 @@
                     <select class="form-control " id="job_type" placeholder="Тип работы" name="job_type">
                         @foreach (var type in Model.job_type)
                         {
-                            var selected = type.id == Model.Profile.job_type.id ? "selected='selected'" : "";
+                            var selected = type.id == Model.Profile.job_type?.id ? "selected='selected'" : "";
                             <option @selected value="@type.id">@type.name</option>
                         }
                     </select>
@@ -59,7 +59,7 @@
                     <select class="form-control " id="education_level" name="education_level">
                         @foreach (var educationLevel in Model.education_levels)
                         {
-                            var selected = educationLevel.id == Model.Profile.education_level.id ? "selected='selected'" : "";
+                            var selected = educationLevel.id == Model.Profile.education_level?.id ? "selected='selected'" : "";
                             <option @selected value="@educationLevel.id">@educationLevel.name</option>
                         }
                     </select>
@@ -69,7 +69,7 @@
                     <select class="form-control " id="experience_levels" name="experience_level">
                         @foreach (var experienceLevel in Model.experience_levels)
                         {
-                            var selected = experienceLevel.id == Model.Profile.experience_level.id ? "selected='selected'" : "";
+                            var selected = experienceLevel.id == Model.Profile.experience_level?.id ? "selected='selected'" : "";
                             <option @selected value="@experienceLevel.id">@experienceLevel.name</option>
                         }
                     </select>

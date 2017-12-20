@@ -6,8 +6,8 @@ using System.Web;
 
 namespace KhaiJobs.ViewModels
 {
-    public class StudentProfileViewModel
+    public class ViewResumeViewModel
     {
-        public student_profiles Profile { get; set; }
+        public position_resumes Profile { get; set; }
     }
 }
