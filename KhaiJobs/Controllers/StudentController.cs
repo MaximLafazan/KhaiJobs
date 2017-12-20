@@ -33,10 +33,15 @@ namespace KhaiJobs.Controllers
         {
             return View();
         }
-        public ActionResult ViewJobPosting()
+        public ActionResult ViewJobPosting(int id)
         {
-            return View();
+            var view = new JobPostingViewModel();
+            var vacancies = context.vacancies.ToList();
+            view.Vacancy = context.vacancies.Where(x => x.company.id == id).FirstOrDefault();
+            //view.dateOfPublishing = '14/12/2017';
+            return View(view);
         }
+
         public ActionResult ResumePostings()
         {
             return View();
