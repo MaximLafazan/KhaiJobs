@@ -1,4 +1,5 @@
-﻿@{Layout = "~/Views/Shared/_Student.cshtml";}
+﻿@model KhaiJobs.ViewModels.StudentProfileViewModel
+@{Layout = "~/Views/Shared/_Student.cshtml";}
 @{
     ViewBag.Title = "Просмотр Профиля";
 }
@@ -10,16 +11,16 @@
             <h3 class="profile">Мой профиль</h3>
 
             <p>
-                Имя : Антон
+                Имя : @Model.Profile.name
             </p>
             <p>
-                Фамилия : Иванов
+                Фамилия : @Model.Profile.lastname
             </p> 
             <p>
-                Email : jun@gmail.com
+                Email : @Model.Profile.email
             </p>
             <p>
-                Телефон : 1234567890
+                Телефон : @Model.Profile.phone
             </p>
             <div>
                 <button class="btn btn-primary" onclick="window.location.href = '/Student/EditProfile'">Редактировать</button>

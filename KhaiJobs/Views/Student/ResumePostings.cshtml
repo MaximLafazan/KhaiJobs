@@ -1,4 +1,5 @@
-﻿@{Layout = "~/Views/Shared/_Student.cshtml";}
+﻿@model KhaiJobs.ViewModels.ViewResumesViewModel
+@{Layout = "~/Views/Shared/_Student.cshtml";}
 @{
     ViewBag.Title = "Просмотр моих резюме";
 }
@@ -18,26 +19,21 @@
                     <th></th>
 
                 </tr>
+                @foreach (var resume in Model.Resumes)
+                {
                 <tr>
-                    <td>Junior Engineer</td>
-                    <td>00123</td>
-                    <td>Харьков</td>
+                    <td>@resume.name</td>
+                    <td>@resume.city</td>
                     <td>Да</td>
-                    <td><a href="#">Изменить</a></td>
+                    <td><a href="/Student/AddOrEditResume?id=@resume.id">Изменить</a></td>
 
                 </tr>
-                <tr>
-                    <td>Middle Junior Engineer</td>
-                    <td>00146</td>
-                    <td>Харьков</td>
-                    <td>Нет</td>
-                    <td><a href="#">Изменить</a></td>
-
-                </tr>
+                }
             </table>
 
         </div>
     </div>
+    <button class="btn btn-primary" onclick="window.location.href = '/Student/AddOrEditResume'">Добавить</button>
 </div>
 
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" media="screen">

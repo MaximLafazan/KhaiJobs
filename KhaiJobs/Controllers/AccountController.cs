@@ -83,7 +83,7 @@ namespace KhaiJobs.Controllers
                 {
                     if (UserManager.GetRoles(user.Id).FirstOrDefault() == "Student")
                     {
-                        return RedirectToAction("StudentProfile", "Student");
+                        return RedirectToAction("ViewProfile", "Student");
                     }
                     if (UserManager.GetRoles(user.Id).FirstOrDefault() == "Company")
                     {

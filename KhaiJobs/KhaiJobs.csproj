@@ -206,6 +206,7 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartUp.cs" />
+    <Compile Include="ViewModels\EditResumeViewModel.cs" />
     <Compile Include="ViewModels\JobPostingViewModel.cs" />
     <Compile Include="ViewModels\VacancySearchViewModel.cs" />
     <Compile Include="ViewModels\ResumeSearchViewModel.cs" />
@@ -213,6 +214,8 @@
     <Compile Include="ViewModels\StudentProfileEditViewModel.cs" />
     <Compile Include="ViewModels\VacancyViewModel.cs" />
     <Compile Include="ViewModels\StudentProfileViewModel.cs" />
+    <Compile Include="ViewModels\ViewResumesViewModel.cs" />
+    <Compile Include="ViewModels\ViewResumeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\KhaiJobs.dll" />
@@ -317,6 +320,7 @@
     <Content Include="Views\Manager\ViewResume.cshtml" />
     <Content Include="Views\Student\ResumePostings.cshtml" />
     <Content Include="Views\Student\Competence.cshtml" />
+    <Content Include="Views\Student\AddOrEditResume.cshtml" />
     <None Include="Views\Student\JobSearch.cshtml" />
     <None Include="Views\Student\MyFavorites.cshtml" />
     <Content Include="Web.config">

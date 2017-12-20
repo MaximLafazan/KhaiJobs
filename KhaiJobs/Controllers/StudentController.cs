@@ -16,7 +16,7 @@ namespace KhaiJobs.Controllers
 
         public ActionResult EditProfile()
         {
-            var model = new ViewResumeViewModel();
+            var model = new StudentProfileViewModel();
             var userId = User.Identity.GetUserId();
             model.Profile = context.student_profiles.Where(x => x.student_id == userId).FirstOrDefault() ?? new student_profiles();
 
@@ -30,7 +30,7 @@ namespace KhaiJobs.Controllers
                 var profile = new student_profiles();
                 profile.student_id = User.Identity.GetUserId();
                 profile.name = model.name;
-                profile.last_name = model.last_name;
+                profile.lastname = model.lastname;
                 profile.email = model.email;
                 profile.phone = model.phone;
                 context.student_profiles.Add(profile);
@@ -40,7 +40,7 @@ namespace KhaiJobs.Controllers
             {
                 var profile = context.student_profiles.Where(x => x.id == model.id).FirstOrDefault();
                 profile.name = model.name;
-                profile.last_name = model.last_name;
+                profile.lastname = model.lastname;
                 profile.email = model.email;
                 profile.phone = model.phone;
                 context.SaveChanges();
@@ -77,7 +77,11 @@ namespace KhaiJobs.Controllers
         }
         public ActionResult ViewProfile()
         {
-            return View();
+            var model = new StudentProfileViewModel();
+            var userId = User.Identity.GetUserId();
+            model.Profile = context.student_profiles.Where(x => x.student_id == userId).FirstOrDefault() ?? new student_profiles();
+
+            return View(model);
         }
         public ActionResult Competence()
         {
@@ -86,14 +90,11 @@ namespace KhaiJobs.Controllers
 
         
         [Authorize(Roles = "Student")]
-        public ActionResult AddOrEditResume()
+        public ActionResult AddOrEditResume(int? id)
         {
-            var model = new StudentProfileViewModel();
+            var model = new ViewResumeViewModel();
             var userId = User.Identity.GetUserId();
-            model.Profile = context.student_profiles.Where(x => x.student_id == userId).FirstOrDefault() ?? new student_profiles();
-            model.job_type = context.job_types.ToList();
-            model.experience_levels = context.experience_levels.OrderBy(x => x.id).ToList();
-            model.education_levels = context.education_levels.ToList();
+            model.Profile = context.position_resumes.Where(x => x.id == id).FirstOrDefault() ?? new position_resumes();
 
             return View(model);
         }
