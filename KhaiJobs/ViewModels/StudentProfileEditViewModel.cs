@@ -9,13 +9,9 @@ namespace KhaiJobs.ViewModels
     {
         public int id { get; set; }
         public string name { get; set; }
-        public int job_type { get; set; }
-        public string city { get; set; }
-        public string country { get; set; }
-        public bool is_relocate { get; set; }
-        public int education_level { get; set; }
-        public int experience_level { get; set; }
-        public string description { get; set; }
+        public string last_name { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
         public string student_id { get; set; }
 
     }
