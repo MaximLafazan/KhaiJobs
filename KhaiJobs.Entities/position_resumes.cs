@@ -13,6 +13,15 @@ namespace KhaiJobs.Entities
         public int? id_positions { get; set; }
 
         public int? id_student_profiles { get; set; }
+        public string name { get; set; }
+        public job_types job_type { get; set; }
+        public string city { get; set; }
+        public string country { get; set; }
+        public bool is_relocate { get; set; }
+        public education_levels education_level { get; set; }
+        public experience_levels experience_level { get; set; }
+        public string description { get; set; }
+        public string student_id { get; set; }
 
         public virtual position position { get; set; }
 

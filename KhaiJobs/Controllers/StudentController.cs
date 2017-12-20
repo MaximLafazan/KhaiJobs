@@ -16,7 +16,36 @@ namespace KhaiJobs.Controllers
 
         public ActionResult EditProfile()
         {
-            return View();
+            var model = new ViewResumeViewModel();
+            var userId = User.Identity.GetUserId();
+            model.Profile = context.student_profiles.Where(x => x.student_id == userId).FirstOrDefault() ?? new student_profiles();
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditProfile(StudentProfileEditViewModel model)
+        {
+            if (model.id == 0)
+            {
+                var profile = new student_profiles();
+                profile.student_id = User.Identity.GetUserId();
+                profile.name = model.name;
+                profile.last_name = model.last_name;
+                profile.email = model.email;
+                profile.phone = model.phone;
+                context.student_profiles.Add(profile);
+                context.SaveChanges();
+            }
+            if (model.id != 0)
+            {
+                var profile = context.student_profiles.Where(x => x.id == model.id).FirstOrDefault();
+                profile.name = model.name;
+                profile.last_name = model.last_name;
+                profile.email = model.email;
+                profile.phone = model.phone;
+                context.SaveChanges();
+            }
+            return RedirectToAction("ViewProfile");
         }
         public ActionResult JobSearch(string keyword)
         {
@@ -52,7 +81,7 @@ namespace KhaiJobs.Controllers
 
         
         [Authorize(Roles = "Student")]
-        public ActionResult StudentProfile()
+        public ActionResult AddOrEditResume()
         {
             var model = new StudentProfileViewModel();
             var userId = User.Identity.GetUserId();
@@ -65,14 +94,14 @@ namespace KhaiJobs.Controllers
         }
 
         [HttpPost]
-        public ActionResult StudentProfile(StudentProfileEditViewModel model)
+        public ActionResult AddOrEditResume(EditResumeViewModel model)
         {
             var job_type = context.job_types.ToList();
             var experience_levels = context.experience_levels.OrderBy(x => x.id).ToList();
             var education_levels = context.education_levels.ToList();
             if (model.id == 0)
             {
-                var profile = new student_profiles();
+                var profile = new position_resumes();
                 profile.student_id = User.Identity.GetUserId();
                 profile.name = model.name;
                 profile.is_relocate = model.is_relocate;
@@ -82,12 +111,12 @@ namespace KhaiJobs.Controllers
                 profile.education_level = education_levels.Where(x=>x.id == model.education_level).FirstOrDefault();
                 profile.experience_level = experience_levels.Where(x => x.id == model.experience_level).FirstOrDefault();
                 profile.job_type = job_type.Where(x => x.id == model.job_type).FirstOrDefault();
-                context.student_profiles.Add(profile);
+                context.position_resumes.Add(profile);
                 context.SaveChanges();
             }
             if(model.id != 0)
             {
-                var profile = context.student_profiles.Where(x => x.id == model.id).FirstOrDefault();
+                var profile = context.position_resumes.Where(x => x.id == model.id).FirstOrDefault();
                 profile.name = model.name;
                 profile.is_relocate = model.is_relocate;
                 profile.city = model.city;
