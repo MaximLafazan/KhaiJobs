@@ -1,4 +1,5 @@
-﻿@{Layout = "~/Views/Shared/_Company.cshtml";}
+﻿@model KhaiJobs.ViewModels.VacanciesViewModel
+@{Layout = "~/Views/Shared/_Company.cshtml";}
 @{
     ViewBag.Title = "Просмотр моих вакансий";
 }
@@ -12,31 +13,25 @@
             <table width="100%" class="table-striped">
                 <tr>
                     <th>Название</th>
-                    <th>Код вакансии</th>
                     <th>Месторасположение</th>
                     <th>Размещено</th>
                     <th></th>
 
                 </tr>
-                <tr>
-                    <td>Junior Engineer</td>
-                    <td>00123</td>
-                    <td>Харьков</td>
-                    <td>Да</td>
-                    <td><a href="#">Изменить</a></td>
+                @foreach (var vacancy in Model.Vacancies)
+                {
+                    <tr>
+                        <td>@vacancy.name</td>
+                        <td>@(vacancy.company?.city)</td>
+                        <td>Да</td>
+                        <td><a href="/Company/AddEditPosting?id=@vacancy.id">Изменить</a></td>
 
-                </tr>
-                <tr>
-                    <td>Middle Junior Engineer</td>
-                    <td>00146</td>
-                    <td>Харьков</td>
-                    <td>Нет</td>
-                    <td><a href="#">Изменить</a></td>
-
-                </tr>
+                    </tr>
+                }
             </table>
 
         </div>
+        <button class="btn btn-primary" onclick="window.location.href = '/Company/AddEditPosting'">Добавить</button>
     </div>
 </div>
 

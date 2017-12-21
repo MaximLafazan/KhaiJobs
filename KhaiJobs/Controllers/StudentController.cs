@@ -66,14 +66,17 @@ namespace KhaiJobs.Controllers
         {
             var view = new JobPostingViewModel();
             var vacancies = context.vacancies.ToList();
-            view.Vacancy = context.vacancies.Where(x => x.company.id == id).FirstOrDefault();
+            view.Vacancy = context.vacancies.Where(x => x.id == id).FirstOrDefault();
             //view.dateOfPublishing = '14/12/2017';
             return View(view);
         }
 
         public ActionResult ResumePostings()
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var model = new ViewResumesViewModel();
+            model.Resumes = context.position_resumes.Where(x => x.student_id == userId).ToList();
+            return View(model);
         }
         public ActionResult ViewProfile()
         {
@@ -95,7 +98,9 @@ namespace KhaiJobs.Controllers
             var model = new ViewResumeViewModel();
             var userId = User.Identity.GetUserId();
             model.Profile = context.position_resumes.Where(x => x.id == id).FirstOrDefault() ?? new position_resumes();
-
+            model.job_type = context.job_types.ToList();
+            model.experience_levels = context.experience_levels.OrderBy(x => x.id).ToList();
+            model.education_levels = context.education_levels.ToList();
             return View(model);
         }
 
@@ -133,7 +138,7 @@ namespace KhaiJobs.Controllers
                 profile.job_type = job_type.Where(x => x.id == model.job_type).FirstOrDefault();
                 context.SaveChanges();
             }
-            return RedirectToAction("StudentProfile");
+            return RedirectToAction("ResumePostings");
         }
 
     }

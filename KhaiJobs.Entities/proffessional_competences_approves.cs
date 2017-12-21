@@ -6,7 +6,7 @@ namespace KhaiJobs.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("public.proffessional_competences_approves")]
+    [Table("proffessional_competences_approves")]
     public partial class proffessional_competences_approves
     {
         public int id { get; set; }

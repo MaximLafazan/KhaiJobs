@@ -8,15 +8,15 @@
     <div class="row">
         <div class="col-lg-9 ">
 
-            <h3 class="alljobs">@Model?.name</h3>
+            <h3 class="alljobs">@Model.Vacancy.name</h3>
 
             @*<div>Опубликовано 14 ноября 2017 @Model.dateOfPublishing </div>*@
 
             <div class="contactsblock">
-                <div><i class="fa fa-map-marker"></i> @Model.Vacancy.company?.city</div>
-                <div><i class="fa fa-user"></i>@Model.Vacancy.contact?</div>
-                <div><i class="fa fa-phone"></i>@Model.Vacancy.company?.phone</div>
-                <div><i class="fa fa-globe"></i> <a href="#">@Model.Vacancy.company.website_url</a></div>
+                <div><i class="fa fa-map-marker"></i> @(Model.Vacancy.company?.city)</div>
+                <div><i class="fa fa-user"></i>@Model.Vacancy.contact</div>
+                <div><i class="fa fa-phone"></i>@(Model.Vacancy.company?.phone)</div>
+                <div><i class="fa fa-globe"></i> <a href="#">@(Model.Vacancy.company?.website_url)</a></div>
             </div>
 
             <hr />

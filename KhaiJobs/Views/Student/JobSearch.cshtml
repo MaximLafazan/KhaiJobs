@@ -27,7 +27,7 @@
                 {
                     <tr>
                         <td class="job-item">
-                            <a href="@Url.Action("ViewJobPosting", "JobPosting", new { id = vacancy.id})" class="namejob">@vacancy.name</a>
+                            <a href="@Url.Action("ViewJobPosting", "Student", new { id = vacancy.id})" class="namejob">@vacancy.name</a>
                             <a href="#" class="companyjob"><h4>@(vacancy.company?.name)</h4></a>
                             <div class="location"><i class="fa fa-globe"></i> @(vacancy.company?.city)</div>
                             <div class="descrjob">@vacancy.description</div>

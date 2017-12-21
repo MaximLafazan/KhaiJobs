@@ -5,7 +5,7 @@ namespace KhaiJobs.Entities
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("public.experience_levels")]
+    [Table("experience_levels")]
     public partial class experience_levels
     {
         public int id { get; set; }

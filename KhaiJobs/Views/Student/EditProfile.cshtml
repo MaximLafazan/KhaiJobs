@@ -9,6 +9,7 @@
         <h2>Персональная информация соискателя</h2>
     </div>
     <form id="studentProfileForm" class="" action="/Student/EditProfile" method="post">
+        <input type="hidden" id="id" name="id" value="@Model.Profile.id">
         <div class="form-group">
             <label from="firstName">Имя</label>
             <input type="text" class="form-control" value="@Model.Profile.name" id="name" name="name" />

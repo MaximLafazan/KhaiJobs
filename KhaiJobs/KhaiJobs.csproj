@@ -212,6 +212,7 @@
     <Compile Include="ViewModels\ResumeSearchViewModel.cs" />
     <Compile Include="ViewModels\VacancyEditViewModel.cs" />
     <Compile Include="ViewModels\StudentProfileEditViewModel.cs" />
+    <Compile Include="ViewModels\VacanciesViewModel.cs" />
     <Compile Include="ViewModels\VacancyViewModel.cs" />
     <Compile Include="ViewModels\StudentProfileViewModel.cs" />
     <Compile Include="ViewModels\ViewResumesViewModel.cs" />
@@ -296,7 +297,9 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Company\AddEditPosting.cshtml" />
     <Content Include="Views\Shared\_User.cshtml" />

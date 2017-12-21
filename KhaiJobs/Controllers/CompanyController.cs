@@ -31,6 +31,7 @@ namespace KhaiJobs.Controllers
             var job_type = context.job_types.ToList();
             var experience_levels = context.experience_levels.OrderBy(x => x.id).ToList();
             var education_levels = context.education_levels.ToList();
+            var userId = User.Identity.GetUserId();
             if (model.id == 0)
             {
                 var vacancy = new vacancy();
@@ -40,6 +41,7 @@ namespace KhaiJobs.Controllers
                 vacancy.education_level = education_levels.Where(x => x.id == model.education_level).FirstOrDefault();
                 vacancy.experience_level = experience_levels.Where(x => x.id == model.experience_level).FirstOrDefault();
                 vacancy.job_type = job_type.Where(x => x.id == model.job_type).FirstOrDefault();
+                vacancy.company = context.companies.FirstOrDefault(x => x.company_id == userId);
                 context.vacancies.Add(vacancy);
                 context.SaveChanges();
             }
@@ -54,7 +56,7 @@ namespace KhaiJobs.Controllers
                 vacancy.job_type = job_type.Where(x => x.id == model.job_type).FirstOrDefault();
                 context.SaveChanges();
             }
-            return RedirectToAction("StudentProfile");
+            return RedirectToAction("JobsPostings");
         }
         [Authorize(Roles = "Company")]
         public ActionResult CompanyProfile()
@@ -94,7 +96,10 @@ namespace KhaiJobs.Controllers
 
         public ActionResult JobPostings()
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var model = new VacanciesViewModel();
+            model.Vacancies = context.vacancies.Where(x => x.company.company_id == userId).ToList();
+            return View(model);
         }
 
         public ActionResult MyFavorites()
@@ -105,10 +110,10 @@ namespace KhaiJobs.Controllers
         public ActionResult ResumeSearch(string keyword)
         {
             var model = new ResumeSearchViewModel();
-            model.Resumes = new List<student_profiles>();
+            model.Resumes = new List<position_resumes>();
             if (!string.IsNullOrEmpty(keyword))
             {
-                model.Resumes = context.student_profiles.Where(x => x.name.ToLower().Contains(keyword.ToLower())).ToList();
+                model.Resumes = context.position_resumes.Where(x => x.name.ToLower().Contains(keyword.ToLower())).ToList();
             }
             return View(model);
         }

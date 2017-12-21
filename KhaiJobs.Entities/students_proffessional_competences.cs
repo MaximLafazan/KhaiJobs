@@ -6,7 +6,7 @@ namespace KhaiJobs.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("public.students_proffessional_competences")]
+    [Table("students_proffessional_competences")]
     public partial class students_proffessional_competences
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

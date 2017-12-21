@@ -9,5 +9,10 @@ namespace KhaiJobs.ViewModels
     public class ViewResumeViewModel
     {
         public position_resumes Profile { get; set; }
+        public List<job_types> job_type { get; set; }
+        public List<education_levels> education_levels { get; set; }
+        public List<experience_levels> experience_levels { get; set; }
+
+
     }
 }

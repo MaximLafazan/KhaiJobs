@@ -5,7 +5,7 @@ namespace KhaiJobs.Entities
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("public.disciplines")]
+    [Table("disciplines")]
     public partial class discipline
     {
         public int id { get; set; }

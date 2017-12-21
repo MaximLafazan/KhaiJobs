@@ -5,7 +5,7 @@ namespace KhaiJobs.Entities
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("public.searches")]
+    [Table("searches")]
     public partial class search
     {
         public int id { get; set; }
