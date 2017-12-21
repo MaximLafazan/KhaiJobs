@@ -219,8 +219,6 @@
     <Compile Include="ViewModels\ViewResumeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\KhaiJobs.dll" />
-    <Content Include="bin\KhaiJobs.pdb" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\animate.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -279,6 +277,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\PublishProfiles\khaijobssite - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\khaijobssite - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -326,9 +326,6 @@
     <Content Include="Views\Student\AddOrEditResume.cshtml" />
     <None Include="Views\Student\JobSearch.cshtml" />
     <None Include="Views\Student\MyFavorites.cshtml" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -345,7 +342,6 @@
     <Content Include="Views\Student\AddResume.cshtml" />
     <Content Include="Views\Shared\_Student.cshtml" />
     <Content Include="Views\Company\CompanyProfile.cshtml" />
-    <Content Include="Views\Student\StudentProfile.cshtml" />
     <Content Include="Views\Student\ViewJobPosting.cshtml" />
     <Content Include="Views\Student\ViewProfile.cshtml" />
   </ItemGroup>
