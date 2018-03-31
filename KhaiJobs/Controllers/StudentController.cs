@@ -22,11 +22,6 @@ namespace KhaiJobs.Controllers
 
             return View(model);
         }
-
-        public ActionResult AddResume()
-        {
-            return View();
-        }
         [HttpPost]
         public ActionResult EditProfile(StudentProfileEditViewModel model)
         {
@@ -64,10 +59,6 @@ namespace KhaiJobs.Controllers
             return View(model);
         }
         public ActionResult MyFavorites()
-        {
-            return View();
-        }
-        public ActionResult ViewResume()
         {
             return View();
         }

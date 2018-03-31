@@ -15,51 +15,13 @@
             </p>
             <p>
                 Фамилия : @Model.Profile.lastname
-            </p>
+            </p> 
             <p>
                 Email : @Model.Profile.email
             </p>
             <p>
                 Телефон : @Model.Profile.phone
             </p>
-
-            <div class="alert alert-info">Личностные качества</div>
-
-            <div id="qualities">
-                <table id="table-qual">
-                    <tr>
-                        <td class="skill_name">Качество</td>
-                        <td>
-                            <div id="testrat1"></div>
-                            <input type="hidden" id="testratehide" value="1" />
-                        </td>
-                        <td class="skill-confirm"><span class="confirm-hover" href="#"><i class="glyphicon glyphicon-ok confirm-i"></i><span class="badge whoconf">Подтвердили вы и <a href="#">Иван Иванович</a></span></span></td>
-                    </tr>
-                    <tr>
-                        <td class="skill_name">Качество</td>
-                        <td>
-                            <div id="testrat2"></div>
-                            <input type="hidden" id="testratehide" value="1" />
-                        </td>
-                        <td class="skill-confirm"><span class="confirm-hover" href="#"><i class="glyphicon glyphicon-ok confirm-other"></i><span class="badge whoconf">Подтвердили <a href="#">Иван Иванович</a></span></span></td>
-                    </tr>
-                    <tr>
-                        <td class="skill_name">Качество</td>
-                        <td>
-                            <div id="testrat3"></div>
-                            <input type="hidden" id="testratehide" value="1" />
-                        </td>
-                        <td class="skill-confirm"><span class="confirm-hover" href="#"><i class="glyphicon glyphicon-ok"></i><span class="badge whoconf">Еще никто не подтвердил</span></span></td>
-                    </tr>
-                </table>
-
-            </div>
-            <!--
-        <div class="badge badge-primary">Теория баз данных <i class="glyphicon glyphicon-ok confirm-other"></i></div><br />
-        <div class="badge badge-secondary">Теория графов <i class="glyphicon glyphicon-ok"></i></div><br />
-        <div class="badge badge-success">Компьютерное проектирование <i class="glyphicon glyphicon-ok cofirm-i"></i></div><br />
-        <div class="badge badge-success">Компьютерное зрение <i class="glyphicon glyphicon-ok cofirm-i"></i></div><br />
-    -->
             <div>
                 <button class="btn btn-primary" onclick="window.location.href = '/Student/EditProfile'">Редактировать</button>
             </div>
@@ -69,84 +31,3 @@
 
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="~/Content/jobs.css" rel="stylesheet" />
-<link href="~/Content/competition.css" rel="stylesheet" />
-<link href="~/Content/conf-comp.css" rel="stylesheet" />
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", ready);
-
-    function ready() {
-
-
-        var arr = [
-            {
-                'name': 'Самостоятельность',
-                'score': 2
-            },
-            {
-                'name': 'Стрессоустойчивость',
-                'score': 4
-            },
-            {
-                'name': 'Тактичность',
-                'score': 5
-            }
-        ];
-        for (var k = 1; k <= 3; k++) {
-            $("#testrat"+k).raty({
-                score: arr[k - 1].score,
-                numberMax: 5,
-                readOnly: true
-            });
-        }
-         var j = 0;
-         var arrayTest = ["один", "два", "три", "пять", "десять"];
-         arr.forEach(function (item) {
-             var idforcode = item.name.replace(/\s{1,}/g, '').replace(/[-()/\\]/g, '').replace(/\#/g, '-sh').replace(/\+/g, '-pl');
-             $("#table-qual").append('<tr>' +
-                 '<td class="skill_name">' + item.name + '</td>' +
-                 '<td>' +
-                 '<div id="' + item.name.replace(/\s{1,}/g, '') + '"></div>' +
-                 '<input type="hidden" name="competition[\'' + item.name.replace(/\s{1,}/g, '') + '\']" id="' + idforcode + 'hide" value="1" />' +
-                 '  <td class="skill-confirm"><span class="confirm-hover" href="#"><i class="glyphicon glyphicon-ok"></i><span class="badge whoconf">Еще никто не подтвердил</span></span></td>'
-             );
-             j++;
-             var code = '$("#' + idforcode + '").raty({numberMax: 5, score: ' + item.score + ',target:  "#' + idforcode + 'hide",readOnly:true\});';
-             console.log(code);
-             eval(code);
-         });
-         
-
-
-        $('.confirm-hover').hover(
-            function () {
-                //console.log(this.children[1]);
-                this.children[1].style.visibility = "visible";
-                this.children[1].style.opacity = "1";
-
-            },
-            function () {
-
-            }
-
-        );
-        $('.whoconf').hover(
-            function () { },
-            function () {
-                this.style.visibility = "hidden";
-                this.style.opacity = "0";
-            }
-        );
-
-        $('.confirm-i').click(
-            function () {
-                alert("click");
-
-            }
-
-        );
-    }
-</script>
-
-<style>
-
-</style>

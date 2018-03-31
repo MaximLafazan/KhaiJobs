@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" />
 
 </head>
-<body style="background:url(../../images/bg.jpg);">
+<body>
     <div id="menu">
         <nav class="navbar-wrapper navbar-default" role="navigation">
             <div class="container">
@@ -50,13 +50,13 @@
                         <li><a href="@Url.Action("JobSearch","Manager")">Вакансии</a></li>
                         <li><a href="@Url.Action("ResumeSearch","Manager")">Резюме</a></li>
                         <li><a href="@Url.Action("ListTeachers","Manager")">Преподватели</a></li>
-
+                        
                         <li>
                             @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", style = "padding-top: 15px" }))
-                            {
-                                @Html.AntiForgeryToken()
-                                <a id="logout" href="javascript:document.getElementById('logoutForm').submit()">Выход</a>
-                            }
+        {
+                    @Html.AntiForgeryToken()
+                    <a id="logout" href="javascript:document.getElementById('logoutForm').submit()">Выход</a>
+}
                         </li>
                     </ul>
 
@@ -67,20 +67,13 @@
     </div>
 
     @RenderBody()
-    <div class="container content-main">
-        <div class="text-center" style="font-size: 14px;">
-            <div>© 2018 <a href="https://khai.edu">ХАИ</a></div>
-            <div>Все права защищены.</div>
-        </div>
-
-    </div>
     <script src="~/Scripts/jquery.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/custom.js"></script>
     <script src="~/Scripts/jquery.sticky.js"></script>
     <script src="~/Scripts/wow.min.js"></script>
     <script src="~/Scripts/owl.carousel.min.js"></script>
-    <script src="~/Scripts/jquery.raty.js"></script>
+
 </body>
 </html>
 
