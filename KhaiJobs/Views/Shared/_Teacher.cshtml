@@ -1,6 +1,7 @@
 ﻿
 @{
-    ViewBag.Title = "Manager";
+    ViewBag.Title = "_Teacher";
+
 }
 
 <!DOCTYPE html>
@@ -47,9 +48,9 @@
                 <div class="collapse navbar-collapse navbar-right" id="navbar">
                     <ul class="nav navbar-nav">
 
-                        <li><a href="@Url.Action("JobSearch","Manager")">Вакансии</a></li>
-                        <li><a href="@Url.Action("ResumeSearch","Manager")">Резюме</a></li>
-                        <li><a href="@Url.Action("ListTeachers","Manager")">Преподватели</a></li>
+                        <li><a href="@Url.Action("JobSearch","Teacher")">Вакансии</a></li>
+                        <li><a href="@Url.Action("ResumeSearch","Teacher")">Резюме</a></li>
+
 
                         <li>
                             @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", style = "padding-top: 15px" }))
@@ -67,6 +68,7 @@
     </div>
 
     @RenderBody()
+
     <div class="container content-main">
         <div class="text-center" style="font-size: 14px;">
             <div>© 2018 <a href="https://khai.edu">ХАИ</a></div>
@@ -83,4 +85,3 @@
     <script src="~/Scripts/jquery.raty.js"></script>
 </body>
 </html>
-
