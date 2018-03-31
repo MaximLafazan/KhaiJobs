@@ -3,110 +3,288 @@
     ViewBag.Title = "Добавить резюме";
 }
 <title>@ViewBag.Title</title>
-<div class="container">
+<div class="container content-main">
     <div class="row">
-        <div class="col-lg-10 ">
-            <h2>Добавление/редактирование резюме</h2>
-            <div class="alert alert-info">Работа/должность</div>
-            <div class="form-group">
-                <label class="control-label" for="name">Наименование</label>
-                <input class="form-control" id="name" type="text" placeholder="Название вакансии" />
-            </div>
+        <form id="studentProfileForm" action="/Student/AddOrEditResume" method="post">
+            <div class="col-lg-12 ">
+                <h2>Добавление/редактирование резюме</h2>
+                <div class="alert alert-info">Работа/должность</div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Наименование</label>
+                    <input class="form-control" id="name" type="text" placeholder="Название вакансии" />
+                </div>
 
-            <div class="form-group">
-                <label class=" control-label" for="typejob">Желаемый тип работы</label>
-                <select class="form-control " id="typejob" placeholder="Тип работы">
-                    <option>Полная занятость</option>
-                    <option>Неполная занятость</option>
-                    <option>Стажировка/практика</option>
-                    <option>Удаленная работа</option>
-                    <option>Проектная работа</option>
-                </select>
-            </div>
-            <div class="alert alert-info">Месторасположение</div>
+                <div class="form-group">
+                    <label class=" control-label" for="typejob">Желаемый тип работы</label>
+                    <select class="form-control max-size-in" id="typejob" placeholder="Тип работы">
+                        <option>Полная занятость</option>
+                        <option>Неполная занятость</option>
+                        <option>Стажировка/практика</option>
+                        <option>Удаленная работа</option>
+                        <option>Проектная работа</option>
+                    </select>
+                </div>
+                <br />
+                <div class="alert alert-info">Месторасположение</div>
 
-            <div class="form-group">
-                <label class=" control-label" for="city">Город</label>
-                <select class="form-control " id="city" name="city">
-                    <option>Киев</option>
-                    <option>Харьков</option>
-                    <option>Львов</option>
-                    <option>Одесса</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class=" control-label" for="relocate">Возможность переезда</label>
-                <select class="form-control " id="relocate" name="relocate">
-                    <option>Да</option>
-                    <option>Нет</option>
+                <div class="form-group">
+                    <label class=" control-label" for="city">Город</label>
+                    <select class="form-control max-size-in" id="city" name="city">
+                        <option>Киев</option>
+                        <option>Харьков</option>
+                        <option>Львов</option>
+                        <option>Одесса</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class=" control-label" for="relocate">Возможность переезда</label>
+                    <select class="form-control max-size-in" id="relocate" name="relocate">
+                        <option>Да</option>
+                        <option>Нет</option>
 
-                </select>
-            </div>
-            <div class="alert alert-info">Образование и опыт</div>
-            <div class="form-group">
-                <label class=" control-label" for="levelEducation">Уровень образования</label>
-                <select class="form-control " id="levelEducation" name="levelEducation">
+                    </select>
+                </div>
+                <br />
+                <div class="alert alert-info">Образование и опыт</div>
+                <div class="form-group">
+                    <label class=" control-label" for="levelEducation">Уровень образования</label>
+                    <select class="form-control max-size-in" id="levelEducation" name="levelEducation">
 
-                    <option>Неполное высшее</option>
-                    <option>Полное высшее</option>
+                        <option>Неполное высшее</option>
+                        <option>Полное высшее</option>
 
-                </select>
-            </div>
-            <div class="form-group">
-                <label class=" control-label" for="levelExp">Опыт</label>
-                <select class="form-control " id="levelExp" name="levelExp">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class=" control-label" for="levelExp">Опыт</label>
+                    <select class="form-control max-size-in" id="levelExp" name="levelExp">
 
-                    <option>Без опыта</option>
-                    <option>Менее пол года</option>
-                    <option>Пол года - 1 год </option>
-                    <option>Более 1 года</option>
-                    <option>Более 2 года</option>
-                    <option>Более 3 года</option>
-                    <option>Более 4 года</option>
-                    <option>Более 5 года</option>
+                        <option>Без опыта</option>
+                        <option>Менее пол года</option>
+                        <option>Пол года - 1 год </option>
+                        <option>Более 1 года</option>
+                        <option>Более 2 года</option>
+                        <option>Более 3 года</option>
+                        <option>Более 4 года</option>
+                        <option>Более 5 года</option>
 
-                </select>
-            </div>
-
-            <div class="alert alert-info">Навыки и знания</div>
-            <div class="form-group">
-                <label class=" control-label" for="skill">Навыки</label>
-                <input class="form-control" id="skill" name="skill" />
+                    </select>
+                </div>
+                <br />
+                <div class="alert alert-info">Дополнительная информация</div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="7" name="textResume"></textarea>
+                </div>
+                <div class="alert alert-info">Навыки</div>
+                <div class="form-group">
+                    <div class="input-group input-gr-add">
+                        <input class="form-control" id="skill" name="skill" placeholder="Введите навык" />
+                        <ul class="dropdown-menu" id="drop-skill" style="top:31px; left:0px;"></ul>
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary btn-fix" id="btn-skill-add">Добавить</button>
+                        </span>
+                    </div>
+                </div>
                 <div id="skills">
-                    <label class="control-label">
-                        C#
-                        <input class=" form-control-lg" type="radio" name="C#" value="1" />1 
-                        <input class=" form-control-lg" type="radio" name="C#" value="2" />2
-                        <input class=" form-control-lg" type="radio" name="C#" value="3" />3
-                        <input class=" form-control-lg" type="radio" name="C#" value="4" />4
-                        <input class=" form-control-lg" type="radio" name="C#" value="5" />5
-                    </label>
+                    <table id="table-skill"></table>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class=" control-label" for="knowledge">Знания</label>
-                <input class="form-control" id="knowledge" name="knowledge" />
-                <div id="knowledges">
+                <div class="alert alert-info">Знания</div>
+                <div class="form-group">
+                    <div class="input-group input-gr-add">
+                        <input class="form-control" id="knowledge" name="knowledge" placeholder="Введите знание" />
+                        <ul class="dropdown-menu" id="drop-knowledge" style="top:31px; left:0px;"></ul>
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary btn-fix" id="btn-know-add">Добавить</button>
+                        </span>
+                    </div>
+                    <div id="knowledges">
+                        <table id="table-know"></table>
+                    </div>
+                </div>
 
-                </div>
-            </div>
-            <div class="alert alert-info">Личностные качества</div>
-            <div class="form-group">
-                <label class=" control-label" for="quality">Качество</label>
-                <input class="form-control" id="quality" name="quality" />
-                <div id="qualities">
+                <br />
 
+                <div>
+                    <button class="btn btn-primary" onclick="$('#studentProfileForm').submit()">Сохранить</button>
                 </div>
             </div>
-        </div>
-    </div>
+        </form>
+    <!--<div id="time"></div>-->
 </div>
-
+    </div>
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="~/Content/jquery.raty.css" rel="stylesheet" />
+<link href="~/Content/competition.css" rel="stylesheet" />
 
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", ready);
+
+    // этот массив должен подгружатся из БД
+    
+
+    var ArraySkills = ["Умение решать задачи", "Аналитический склад ума", "Упорство", "Умение работать в команде", "Хорошая концентрация", "Усидчивость", "Алгоритмизированный подход", "Ответственность", "Коммуникабельность", "Инициативность"];
+
+    var ArrayKnow = ["Action Script", "C++/CLI", "C++", "ColdFusion", "D", "Delphi", "Dylan", "Eiffel", "Game Maker Language (GML)", "Groovy", "haXe", "Io", "Java", "JavaScript", "MC#", "Object Pascal", "Objective-C", "Perl", "PHP", "Pike", "Python", "Ruby", "Self", "Simula", "Smalltalk", "Swift", "Vala", "Visual Basic", "Visual DataFlex", "Zonnon", "Ada", "Активный Оберон", "Модула-3", "Оберон-2", "C#", "Curry", "Delphi (язык программирования)", "Erlang", "Mathematica", "Mozart", "Nemerle", "Python", "Scala", "Zonnon", "Компонентный Паскаль (Component Pascal)", "Swift"];
+
+
+    function ready() {
+        //setTimeout(updtime, 1000);
+        
+        /*
+        $("#testrate").raty({
+            score: 1,
+            numberMax: 5,
+            target: "#" + this.id + "hide",
+            click: function (score, evt) {
+                //alert('ID: ' + this.id + "\nscore: " + score + "\nevent: " + evt);
+                $("#" + this.id + "hide").val(score);
+                alert(document.getElementById(this.id + "hide").value);
+            }
+           
+        });
+        */
+
+        $(document).on('click', '.skill-remove > a', function () {
+            $(this).parents('tr').fadeOut(100, function () {
+                $(this).remove();
+               /* $.post(window.location.href,
+                    {
+                        delete_skill: this.id
+                        //csrfmiddlewaretoken: 'Rxd89plwJZRqCX3qJ9nQ7hbSQb0ZWMuEvTTgkhmlb5KJWvYdN4liWlufJtoCNMkz'
+                    },
+                    function (data, status) {
+                        $(this).remove();
+                    })
+                    .fail(function (xhr) {
+                        //console.log("Can’t remove. Reason: " + xhr.statusText);
+                    });
+                */
+            });
+            return false;
+        });
+
+        
+
+       
+        $("#drop-skill").on('click', 'li a', function (event) {
+            event.preventDefault();
+            document.getElementById("drop-skill").style.display = "none";
+            var textskill = this.innerHTML;
+            AddItemToTable("table-skill", "skill", textskill);
+        });
+        $("#drop-knowledge").on('click', 'li a', function (event) {
+            event.preventDefault();
+            document.getElementById("drop-knowledge").style.display = "none";
+            var textknow = this.innerHTML;
+            AddItemToTable("table-know", "knowledge", textknow);
+
+        });
+
+        
+        $('#btn-know-add').on('click', function () {
+            var textknow = $('#knowledge').val();
+            if (textknow != "") {
+                AddItemToTable("table-know", "knowledge", textknow);
+            }
+        });
+        $('#btn-skill-add').on('click', function () {
+            var textskill = $('#skill').val();
+            if (textskill != "") {
+                AddItemToTable("table-skill", "skill", textskill);
+            }
+        });
+
+
+        var tmp = 1;
+        function AddItemToTable(tblName, inputEl, text) {
+            var tbl = $("#" + tblName);
+            if (tbl[0].children.length != 0) {
+
+                var listQuantyties = tbl[0].children[0].children;
+                var flagExist = false;
+                for (var i = 0; i < listQuantyties.length; i++) {
+
+                    console.log(listQuantyties[i].children[0].innerHTML);
+                    if (listQuantyties[i].children[0].innerHTML == text) {
+
+                        flagExist = true;
+                    }
+                }
+            }
+            $("#" + inputEl).val("");
+            //var idforcode = text.replace(/\s{1,}/g, '').replace(/\(/g, 'sc-o').replace(/\)/g, 'sc-c').replace(/[()/\\]/g, '').replace(/\#/g, '-sh').replace(/\+/g, '-pl');
+            var idforcode ="";
+            if (!flagExist)
+                $("#" + tblName).append('<tr>' +
+                    '<td class="skill_name">' + text + '</td>' +
+                    '<td>' +
+                    '<div id="tmpUtem' + tmp + '" class="qualityone"></div>' +
+                    '<input type="hidden" name="competition[\'' + text+ '\']" id="' + idforcode + 'hide" value="1" />' +
+                    ' </td> <td class="skill-remove"><a href="#">×</a></td> </tr>'
+                );
+            var code = '$("#tmpUtem'+tmp+'").raty({score: 1,numberMax: 5,click: function(score, evt){this.nextSibling.value=score}});';
+            console.log(code);
+            eval(code);
+            tmp++;
+            return false;
+        }
+        
+        $("#skill").on('keyup', function () {
+            var inp = this.value;
+            UpdateList("drop-skill",inp,ArraySkills);
+        });
+
+        $("#quality").on('keyup', function () {
+            var inp = this.value;
+            UpdateList("drop-quality", inp, arrQuality);
+        });
+
+        $("#knowledge").on('keyup', function () {
+            //console.log(this.value);
+            var inp = this.value;
+            UpdateList("drop-knowledge", inp, ArrayKnow);
+        });
+
+
+        function UpdateList(nameDrop,inp,arrayList) {
+            var natEl = document.getElementById(nameDrop);
+            natEl.style.display = "none";
+            if (inp.length >= 1) {
+                var jqEl = $("#" + nameDrop);
+                jqEl.empty();
+                var count = 0;
+                arrayList.forEach(function (item) {
+
+                    if (item.toLowerCase().indexOf(inp.toLowerCase()) != -1) {
+                        //console.log("Sussess! " + item);
+                        count++;
+                        if (count < 10) {
+                            jqEl.append('<li><a href="#">' + item + '</a></li>');
+                        }
+                        
+                    }
+                    
+                });
+
+                if (count > 0) { natEl.style.display = "block"; }
+            }
+        }
+
+        
+
+
+    };
+    /*
+    function updtime() {
+        var d = new Date;
+        $("#time").html(d.getHours() + " : " + d.getMinutes() + " : "+d.getSeconds());
+        setTimeout(updtime, 1000);
+    }
+    */
+
+</script>
 <style>
-    input[type='radio'] {
-        transform: scale(2);
-        margin:10px;
+    .max-size-in{
+        max-width:320px;
     }
 </style>

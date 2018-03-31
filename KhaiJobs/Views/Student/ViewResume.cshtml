@@ -1,0 +1,168 @@
+﻿@{Layout = "~/Views/Shared/_Student.cshtml";}
+@{
+    ViewBag.Title = "Просмотр Резюме";
+}
+<title>@ViewBag.Title</title>
+<div class="container content-main">
+    <div class="row">
+        <div class="col-lg-9 ">
+
+            <h3 class="alljobs">Название Резюме</h3>
+
+            <div>Опубликовано 14 ноября 2017</div>
+
+            <div class="contactsblock">
+                <div><i class="fa fa-map-marker"></i> Харьков</div>
+                <div><i class="fa fa-user"></i> Иван Иванович</div>
+                <div><i class="fa fa-phone"></i> 380951234567</div>
+
+            </div>
+
+            <hr />
+
+            <div>
+                Тип работы : <b>Полная занятость</b>
+            </div>
+
+
+            <div>
+                Возможность переезда : <b>Да</b>
+            </div>
+            <div>
+                Уровень образования : <b>Полное высшее</b>
+            </div>
+            <div>
+                Опыт : <b>1 год</b>
+            </div>
+            <hr />
+
+            <div class="alert alert-info">Личностные качества</div>
+
+            <div id="qualities">
+                <table id="table-qual"></table>
+            </div>
+
+            <br>
+            <div class="alert alert-info">Навыки</div>
+
+            <div id="skills">
+                <table id="table-skill"></table>
+            </div>
+            <br>
+            <div class="alert alert-info">Знания</div>
+            <div id="knowledges">
+                <table id="table-know"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="~/Content/jobs.css" rel="stylesheet" />
+<link href="~/Content/conf-comp.css" rel="stylesheet" />
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", ready);
+
+    function ready() {
+
+
+        var arr = [
+            {
+                'name': 'C#',
+                'score': 4,
+                'confirmCount': 2,
+                'confirmIam':true,
+                'confirm': [
+                    {
+                        "name": "simon red",
+                        "id" : "4"
+                    },
+                    {
+                        "name": "марья ивановна",
+                        "id": "5"
+                    },
+                ]
+            },
+            {
+                'name': 'C++',
+                'score': 4,
+                'confirmCount': 0,
+                'confirm-i': 'false',
+                'confirm': []
+            },
+            {
+                'name': 'Базы данных',
+                'score': 5,
+                'confirmCount': 0,
+                'confirm-i': 'false',
+                'confirm': []
+            }
+        ];
+        //for (var k = 1; k <= 3; k++) {
+        //    $("#testrat"+k).raty({
+        //        score: arr[k - 1].score,
+        //        numberMax: 5,
+        //        readOnly: true
+        //    });
+        //}
+        var j = 0;
+        console.log(arr);
+         var arrayTest = ["один", "два", "три", "пять", "десять"];
+         arr.forEach(function (item) {
+             var idforcode = item.name.replace(/\s{1,}/g, '').replace(/[-()/\\]/g, '').replace(/\#/g, '-sh').replace(/\+/g, '-pl');
+             var whoConfirm = "";
+             var classConfirm = "";
+             if (item.confirmCount == 0) {
+                 whoConfirm = "Еще никто не подтвердил";
+
+             }
+             else {
+                 whoConfirm = "Подтвердили " + item.confirmCount + " :";
+
+                     classConfirm = "confirm-other";
+                 console.log(item.confirmCount);
+                 for (var k = 0; k < item.confirmCount; k++){
+                     whoConfirm += '<a href="/Teacher/ViewProfile?id=' + item.confirm[k].id + '">' + item.confirm[k].name + '</a>';
+                     if (k != item.confirm.length-1) {
+                         whoConfirm += ', ';
+                     }
+                 }
+             }
+             $("#table-qual").append('<tr>' +
+                 '<td class="skill_name">' + item.name + '</td>' +
+                 '<td>' +
+                 '<div id="' + idforcode + '"></div>' +
+                 '<input type="hidden" name="competition[\'' + item.name.replace(/\s{1,}/g, '') + '\']" id="' + idforcode + 'hide" value="1" />' +
+                 '  <td class="skill-confirm"><span class="confirm-hover" href="#"><i class="glyphicon glyphicon-ok ' + classConfirm+'"></i><span class="badge whoconf">' + whoConfirm + '</span></span></td>'
+             );
+             j++;
+             var code = '$("#' + idforcode + '").raty({numberMax: 5, score: ' + item.score + ',target:  "#' + idforcode + 'hide",readOnly:true\});';
+             console.log(code);
+             eval(code);
+         });
+
+
+
+        $('.confirm-hover').hover(
+            function () {
+                //console.log(this.children[1]);
+                this.children[1].style.visibility = "visible";
+                this.children[1].style.opacity = "1";
+
+            },
+            function () {
+
+            }
+
+        );
+        $('.whoconf').hover(
+            function () { },
+            function () {
+                this.style.visibility = "hidden";
+                this.style.opacity = "0";
+            }
+        );
+
+        
+    }
+</script>

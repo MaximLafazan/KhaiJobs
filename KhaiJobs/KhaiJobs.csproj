@@ -195,6 +195,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,12 +220,14 @@
     <Compile Include="ViewModels\ViewResumeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\competition.css" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\animate.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\conf-comp.css" />
     <Content Include="Content\css-app-green.css" />
     <Content Include="Content\css-app-orange.css" />
     <Content Include="Content\css-app-purple.css" />
@@ -240,6 +243,7 @@
     <Content Include="Content\css-intro.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\jquery.raty.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\owl.theme.css" />
     <Content Include="Content\Site.css" />
@@ -283,6 +287,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.raty.js" />
     <Content Include="Scripts\jquery.sticky.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -324,6 +329,7 @@
     <Content Include="Views\Student\ResumePostings.cshtml" />
     <Content Include="Views\Student\Competence.cshtml" />
     <Content Include="Views\Student\AddOrEditResume.cshtml" />
+    <Content Include="Views\Shared\_Teacher.cshtml" />
     <None Include="Views\Student\JobSearch.cshtml" />
     <None Include="Views\Student\MyFavorites.cshtml" />
     <Content Include="Web.Debug.config">
@@ -344,6 +350,13 @@
     <Content Include="Views\Company\CompanyProfile.cshtml" />
     <Content Include="Views\Student\ViewJobPosting.cshtml" />
     <Content Include="Views\Student\ViewProfile.cshtml" />
+    <Content Include="Views\Teacher\Index.cshtml" />
+    <Content Include="Views\Teacher\JobSearch.cshtml" />
+    <Content Include="Views\Teacher\ResumeSearch.cshtml" />
+    <Content Include="Views\Teacher\ViewJobPosting.cshtml" />
+    <Content Include="Views\Teacher\ViewResume.cshtml" />
+    <Content Include="Views\Student\ViewResume.cshtml" />
+    <Content Include="Views\Teacher\ViewProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
