@@ -67,6 +67,10 @@ namespace KhaiJobs.Controllers
         {
             return View();
         }
+        public ActionResult AddCompetence()
+        {
+            return View();
+        }
         public ActionResult ViewResume()
         {
             return View();

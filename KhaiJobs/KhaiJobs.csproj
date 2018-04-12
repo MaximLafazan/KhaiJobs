@@ -274,9 +274,11 @@
     <Content Include="images\slider3.jpg" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\AddCompetemceScript.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\EditProfileScript.js" />
     <Content Include="Scripts\ekko-lightbox-min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -330,6 +332,7 @@
     <Content Include="Views\Student\Competence.cshtml" />
     <Content Include="Views\Student\AddOrEditResume.cshtml" />
     <Content Include="Views\Shared\_Teacher.cshtml" />
+    <Content Include="Views\Student\AddCompetence.cshtml" />
     <None Include="Views\Student\JobSearch.cshtml" />
     <None Include="Views\Student\MyFavorites.cshtml" />
     <Content Include="Web.Debug.config">
