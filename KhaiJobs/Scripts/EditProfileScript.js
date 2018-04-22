@@ -8,6 +8,16 @@
 
 document.addEventListener("DOMContentLoaded", ready);
 
+$(document).ready(function () {
+    $(".testrat").each(function (item) {
+        $(item).raty({
+            score: arr[k - 1].score,
+            numberMax: 5,
+            readOnly: true
+        });
+    });
+});
+
 function ready() {
     //setTimeout(updtime, 1000);
     var j = 0;
@@ -126,4 +136,5 @@ function ready() {
             if (count > 0) { natEl.style.display = "block"; }
         }
     }
+
 }
