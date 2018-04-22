@@ -21,7 +21,7 @@
             {
                 <tr>
                     <td class="job-item">
-                        <a href="#" class="namejob">@resume.name</a>
+                        <a href="@Url.Action("ViewResume", "Company", new { id = resume.id })" class="namejob">@resume.name</a> 
                         <a href="#" class="studentname"><h4>Иван Петров</h4></a>
                         <div class="location"><i class="fa fa-globe"></i> @resume.city</div>
                         <div class="location"><i class="fa fa-globe"></i> @resume.country</div>

@@ -108,7 +108,7 @@ namespace KhaiJobs.Controllers
         [Authorize(Roles = "Student")]
         public ActionResult AddOrEditResume(int? id)
         {
-            var model = new ViewResumeViewModel();
+            var model = new AddOrEditResumeViewModel();
             var userId = User.Identity.GetUserId();
             model.Profile = context.position_resumes.Where(x => x.id == id).FirstOrDefault() ?? new position_resumes();
             model.job_type = context.job_types.ToList();

@@ -29,5 +29,7 @@ namespace KhaiJobs.Entities
         public virtual List<proffessional_competences> position_proffessional_competences { get; set; }
         public virtual List<personal_competences> position_personal_competences { get; set; }
 
+        public DateTime creation_date { get; set; }
+
     }
 }
