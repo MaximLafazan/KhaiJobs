@@ -1,4 +1,5 @@
-﻿@{Layout = "~/Views/Shared/_Company.cshtml";}
+﻿@model KhaiJobs.ViewModels.ViewResumeViewModel
+@{Layout = "~/Views/Shared/_Company.cshtml";}
 @{
     ViewBag.Title = "Просмотр Резюме";
 }
@@ -7,52 +8,72 @@
     <div class="row">
         <div class="col-lg-9 ">
 
-            <h3 class="alljobs">Название Резюме</h3>
+            <h3 class="alljobs">@Model.name</h3>
 
-            <div>Опубликовано 14 ноября 2017</div>
+            <div>Опубликовано @*14 ноября 2017*@ @Model.creation_date</div>
 
             <div class="contactsblock">
-                <div><i class="fa fa-map-marker"></i> Харьков</div>
-                <div><i class="fa fa-user"></i> Иван Иванович</div>
-                <div><i class="fa fa-phone"></i> 380951234567</div>
+                <div><i class="fa fa-map-marker"></i> @Model.city</div>
+                <div><i class="fa fa-user"></i> @Model.StudentProfile.FullName</div>
+                <div><i class="fa fa-phone"></i> @Model.StudentProfile.Phone</div>
 
             </div>
 
             <hr />
 
             <div>
-                Тип работы : <b>Полная занятость</b>
+                Тип работы :
+                <b>
+                    @Model.job_type
+
+                    @*if(@Model.job_type.Count == 0){
+                        Не указаны
+                        }
+                        @foreach (var jobType in @Model.job_type)
+                        {
+                            <span>jobType.name</span>
+                        }*@
+                </b>
             </div>
 
-            
+
             <div>
-                Возможность переезда : <b>Да</b>
+                Возможность переезда :
+                <b>
+                    @Model.is_relocate
+                </b>
             </div>
             <div>
-                Уровень образования : <b>Полное высшее</b>
+                Уровень образования :
+                <b>
+                    @Model.education_level
+                </b>
             </div>
             <div>
-                Опыт : <b>1 год</b>
+                Опыт :
+                <b>
+                    @Model.experience_level
+                </b>
             </div>
             <hr />
-            
+
             <div>
                 Навыки:
-
-            </div>
-            <div>
-                <span class="badge badge-light">.NET</span>
-                <span class="badge badge-light">ООП</span>
-                <span class="badge badge-light">MVC</span>
+                <div>
+                    <span class="badge badge-light">.NET</span>
+                    <span class="badge badge-light">ООП</span>
+                    <span class="badge badge-light">MVC</span>
+                </div>
             </div>
             <div>
                 Знания:
 
-            </div>
-            <div>
-                <span class="badge badge-light">Теория баз данных</span>
-                <span class="badge badge-light">Компьютерное проектирование</span>
-                
+
+                <div>
+                    <span class="badge badge-light">Теория баз данных</span>
+                    <span class="badge badge-light">Компьютерное проектирование</span>
+
+                </div>
             </div>
         </div>
     </div>
