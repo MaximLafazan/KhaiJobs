@@ -1,6 +1,6 @@
 /* smooth scroll */
     $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
+        $('a[href*=\\#]:not([href=\\#])').click(function() {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 
                 var target = $(this.hash);
@@ -52,7 +52,7 @@ $("#owl-testi").owlCarousel
 jQuery(document).ready(function($) {  
 
 // site preloader -- also uncomment the div in the header and the css style for #preloader
-$(window).load(function(){
+$(window).on('load', function(){
 	$('#preloader').fadeOut('slow',function(){$(this).remove();});
 });
 

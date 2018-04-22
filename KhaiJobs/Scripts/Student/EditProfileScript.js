@@ -6,12 +6,12 @@
     "Требовательность", "Трудолюбие", "Уверенность в себе", "Уравновешенность", "Целеустремленность", "Честность", "Энергичность", "Этичность"
 ];
 
-document.addEventListener("DOMContentLoaded", ready);
+//document.addEventListener("DOMContentLoaded", ready);
 
 $(document).ready(function () {
-    $(".testrat").each(function (item) {
+    $(".testrat").each(function (index, item) {
         $(item).raty({
-            score: arr[k - 1].score,
+            score: 1,
             numberMax: 5,
             readOnly: true
         });
