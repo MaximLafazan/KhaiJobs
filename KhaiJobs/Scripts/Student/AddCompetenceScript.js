@@ -1,5 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", ready);
-
+﻿
 // этот массив должен подгружатся из БД
 
 
@@ -9,22 +8,7 @@ var ArrayKnow = ["Action Script", "C++/CLI", "C++", "ColdFusion", "D", "Delphi",
 
 var ArrayAbility = ["Умение один", "Умение два"];
 
-function ready() {
-    //setTimeout(updtime, 1000);
-
-    /*
-    $("#testrate").raty({
-        score: 1,
-        numberMax: 5,
-        target: "#" + this.id + "hide",
-        click: function (score, evt) {
-            //alert('ID: ' + this.id + "\nscore: " + score + "\nevent: " + evt);
-            $("#" + this.id + "hide").val(score);
-            alert(document.getElementById(this.id + "hide").value);
-        }
-
-    });
-    */
+ $(document).ready(function () {
 
     $(document).on('click', '.skill-remove > a', function () {
         $(this).parents('tr').fadeOut(100, function () {
@@ -94,11 +78,11 @@ function ready() {
 
 
     var tmp = 1;
-    function AddItemToTable(tblName, inputEl, text) {
-        var tbl = $("#" + tblName);
-        if (tbl[0].children.length != 0) {
+    function AddItemToTable(tabelName, inputEl, text) {
+        var tabel = $("#" + tabelName);
+        if (tabel.find("tr").length) {
 
-            var listQuantyties = tbl[0].children[0].children;
+            var listQuantyties = tabel[0].children[0].children;
             var flagExist = false;
             for (var i = 0; i < listQuantyties.length; i++) {
 
@@ -113,14 +97,14 @@ function ready() {
         //var idforcode = text.replace(/\s{1,}/g, '').replace(/\(/g, 'sc-o').replace(/\)/g, 'sc-c').replace(/[()/\\]/g, '').replace(/\#/g, '-sh').replace(/\+/g, '-pl');
         var idforcode = "";
         if (!flagExist)
-            $("#" + tblName).append('<tr>' +
+            $("#" + tabelName).append('<tr>' +
                 '<td class="skill_name">' + text + '</td>' +
                 '<td>' +
-                '<div id="tmpUtem' + tmp + '" class="qualityone"></div>' +
+                '<div class="qualityone tmpUtem"></div>' +
                 '<input type="hidden" name="competition[\'' + text + '\']" id="' + idforcode + 'hide" value="1" />' +
                 ' </td> <td class="skill-remove"><a href="#">×</a></td> </tr>'
             );
-        var code = '$("#tmpUtem' + tmp + '").raty({score: 1,numberMax: 5,click: function(score, evt){this.nextSibling.value=score}});';
+        var code = '$(".tmpUtem").raty({score: 1,numberMax: 5,click: function(score, evt){this.nextSibling.value=score}});';
         //console.log(code);
         eval(code);
         tmp++;
@@ -171,4 +155,4 @@ function ready() {
 
 
 
-};
+});

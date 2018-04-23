@@ -276,7 +276,7 @@
     <Content Include="images\slider3.jpg" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Scripts\AddCompetemceScript.js" />
+    <Content Include="Scripts\Student\AddCompetenceScript.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\custom.js" />
