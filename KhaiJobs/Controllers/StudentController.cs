@@ -1,5 +1,6 @@
 ﻿using KhaiJobs.DataAccess;
 using KhaiJobs.Entities;
+using KhaiJobs.Services;
 using KhaiJobs.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
@@ -13,7 +14,11 @@ namespace KhaiJobs.Controllers
     public class StudentController : Controller
     {
         MainContext context = new MainContext();
-
+        StudentService _service;
+        public StudentController()
+        {
+            _service = new StudentService();
+        }
         public ActionResult EditProfile()
         {
             var model = new StudentProfileViewModel();
@@ -67,9 +72,27 @@ namespace KhaiJobs.Controllers
         {
             return View();
         }
-        public ActionResult AddCompetence()
+        public ActionResult AddProffecionalCompetence(int id)
         {
+            ViewBag.Id = id;
             return View();
+        }
+        [HttpPost]
+        public ActionResult AddProfessionalCompetence(AddProfessionalCompetenceViewModel model)
+        {
+            _service.AddProfessionalCompetence(model);
+            return RedirectToAction("EditProfile");
+        }
+        public ActionResult AddPersonalCompetence(int id)
+        {
+            ViewBag.Id = id;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddPersonalCompetence(AddPersonalCompetenceViewModel model)
+        {
+            _service.AddPersonalCompetence(model);
+            return RedirectToAction("EditProfile");
         }
         public ActionResult ViewResume()
         {
@@ -109,7 +132,7 @@ namespace KhaiJobs.Controllers
         public ActionResult AddOrEditResume(int? id)
         {
             var model = new AddOrEditResumeViewModel();
-            var userId = User.Identity.GetUserId();
+            //var userId = User.Identity.GetUserId();
             model.Profile = context.position_resumes.Where(x => x.id == id).FirstOrDefault() ?? new position_resumes();
             model.job_type = context.job_types.ToList();
             model.experience_levels = context.experience_levels.OrderBy(x => x.id).ToList();
@@ -135,6 +158,7 @@ namespace KhaiJobs.Controllers
                 profile.education_level = education_levels.Where(x=>x.id == model.education_level).FirstOrDefault();
                 profile.experience_level = experience_levels.Where(x => x.id == model.experience_level).FirstOrDefault();
                 profile.job_type = job_type.Where(x => x.id == model.job_type).FirstOrDefault();
+                profile.creation_date = DateTime.Now;
                 context.position_resumes.Add(profile);
                 context.SaveChanges();
             }
@@ -149,6 +173,7 @@ namespace KhaiJobs.Controllers
                 profile.education_level = education_levels.Where(x => x.id == model.education_level).FirstOrDefault();
                 profile.experience_level = experience_levels.Where(x => x.id == model.experience_level).FirstOrDefault();
                 profile.job_type = job_type.Where(x => x.id == model.job_type).FirstOrDefault();
+                profile.creation_date = model.creation_date;
                 context.SaveChanges();
             }
             return RedirectToAction("ResumePostings");

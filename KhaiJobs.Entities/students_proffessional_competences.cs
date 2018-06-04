@@ -25,6 +25,7 @@ namespace KhaiJobs.Entities
         public virtual ICollection<proffessional_competences_approves> proffessional_competences_approves { get; set; }
 
         public virtual proffessional_competences_levels proffessional_competences_levels { get; set; }
+        public virtual proffessional_competences proffessional_competence { get; set; }
 
         public virtual student_profiles student_profiles { get; set; }
     }

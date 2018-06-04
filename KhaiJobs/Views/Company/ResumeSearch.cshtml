@@ -22,11 +22,11 @@
                 <tr>
                     <td class="job-item">
                         <a href="@Url.Action("ViewResume", "Company", new { id = resume.id })" class="namejob">@resume.name</a> 
-                        <a href="#" class="studentname"><h4>Иван Петров</h4></a>
+                        @*<a href="#" class="studentname"><h4>@resume.student_profiles.name @resume.student_profiles.lastname</h4></a>*@
                         <div class="location"><i class="fa fa-globe"></i> @resume.city</div>
                         <div class="location"><i class="fa fa-globe"></i> @resume.country</div>
                         
-                        <div class="pull-right">14.11.2017</div>
+                        <div class="pull-right">@resume.creation_date</div>
                     </td>
                 </tr>
 

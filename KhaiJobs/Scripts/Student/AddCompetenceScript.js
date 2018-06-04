@@ -47,7 +47,6 @@ function ready() {
 
 
 
-
     $("#drop-skill").on('click', 'li a', function (event) {
         event.preventDefault();
         document.getElementById("drop-skill").style.display = "none";
@@ -94,35 +93,31 @@ function ready() {
 
 
     var tmp = 1;
-    function AddItemToTable(tblName, inputEl, text) {
-        var tbl = $("#" + tblName);
-        if (tbl[0].children.length != 0) {
+    function AddItemToTable(tableName, inputEl, text) {
+        var table = $("#" + tableName)[0];
+        var flagExist = false;
+        if (table.children.length != 0) {
 
-            var listQuantyties = tbl[0].children[0].children;
-            var flagExist = false;
-            for (var i = 0; i < listQuantyties.length; i++) {
-
-                console.log(listQuantyties[i].children[0].innerHTML);
-                if (listQuantyties[i].children[0].innerHTML == text) {
-
+            $(table).children().each(function (index, value) {
+                if ($(value).children(".skill-name:first")[0].innerHTML == text) {
                     flagExist = true;
                 }
-            }
+            });
         }
         $("#" + inputEl).val("");
         //var idforcode = text.replace(/\s{1,}/g, '').replace(/\(/g, 'sc-o').replace(/\)/g, 'sc-c').replace(/[()/\\]/g, '').replace(/\#/g, '-sh').replace(/\+/g, '-pl');
         var idforcode = "";
         if (!flagExist)
-            $("#" + tblName).append('<tr>' +
-                '<td class="skill_name">' + text + '</td>' +
+            $("#" + tableName).append('<tr>' +
+                '<td class="skill-name">' + text + '</td>' +
                 '<td>' +
                 '<div id="tmpUtem' + tmp + '" class="qualityone"></div>' +
                 '<input type="hidden" name="competition[\'' + text + '\']" id="' + idforcode + 'hide" value="1" />' +
                 ' </td> <td class="skill-remove"><a href="#">×</a></td> </tr>'
             );
-        var code = '$("#tmpUtem' + tmp + '").raty({score: 1,numberMax: 5,click: function(score, evt){this.nextSibling.value=score}});';
+        //var code = '$("#tmpUtem' + tmp + '").raty({score: 1,numberMax: 5,click: function(score, evt){this.nextSibling.value=score}});';
         //console.log(code);
-        eval(code);
+        //eval(code);
         tmp++;
         return false;
     }
@@ -170,5 +165,36 @@ function ready() {
 
 
 
-
 };
+
+function saveCompetence() {
+    var data = {
+        ProfileId: $("#profileId").val(),
+        Name: $("#competenceName").val(),
+        Skills: getNames("table-skill"),
+        Knowlege: getNames("table-know"),
+        Abilities: getNames("table-ability")
+    }
+    $.ajax({
+        method: "POST",
+        url: "/Student/AddCompetence",
+        data: data
+    })
+      .done(function () {
+      });
+}
+
+function getNames(id) {
+    if (!$("#" + id)) {
+        return [];
+    }
+    var table = $("#" + id)[0];
+    var names = [];
+    if (table.children.length != 0) {
+        $(table).children().each(function (index, value) {
+            names.push($(value).children(".skill-name:first")[0].innerHTML)
+        });
+    }
+    return names;
+}
+

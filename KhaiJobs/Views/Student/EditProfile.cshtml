@@ -42,16 +42,27 @@
             <a class="btn">Редактировать</a>
         </div>
 
-        <div class="alert alert-info">Профессиональные компетенции <a href="/Student/AddCompetence" class="btn btn-action link-btn">Добавить</a></div>
         <div>
-            <span>Test name:</span>
-            <div style="display:inline"  class="testrat"></div>
-            <button class="btn">Редактировать</button>
+            <div class="alert alert-info">Профессиональные компетенции <a href="/Student/AddProfessionalCompetence?id=@Model.Profile.id" class="btn btn-action link-btn">Добавить</a></div>
+            @foreach (var competence in Model.Profile.students_proffessional_competences)
+            {
+                <div>
+                    <span>@competence.proffessional_competence.name</span>
+                    <div style="display:inline" class="testrat"></div>
+                    <a href="/Student/EditProfessionalCompetence?id=@Model.Profile.id" class="btn btn-action link-btn">Редактировать</a>
+                </div>
+            }
         </div>
         <div>
-            <span>Test name:</span>
-            <div style="display:inline"  class="testrat"></div>
-            <button class="btn">Редактировать</button>
+            <div class="alert alert-info">Личностные компетенции <a href="/Student/AddPersonalCompetence?id=@Model.Profile.id" class="btn btn-action link-btn">Добавить</a></div>
+            @foreach (var competence in Model.Profile.students_personal_competences)
+            {
+                <div>
+                    <span>@competence.personal_competence.name</span>
+                    <div style="display:inline" class="testrat"></div>
+                    <a href="/Student/EditPersonalCompetence?id=@Model.Profile.id" class="btn btn-action link-btn">Редактировать</a>
+                </div>
+            }
         </div>
 
         @*<div class="form-group">

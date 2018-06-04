@@ -23,10 +23,16 @@
                 Телефон : @Model.Profile.phone
             </p>
 
-            <div class="alert alert-info">Личностные качества</div>
+            <div class="alert alert-info">Проффесиональные компетенции</div>
 
-            <div id="qualities">
-                <table id="table-qual">
+            <div id="proffesional">
+                @foreach (var competence in Model.Profile.students_proffessional_competences)
+                {
+                    <div>
+                        <i class="fa fa-circle" aria-hidden="true"></i><div style="display: inline" class="skill_name"> @competence.proffessional_competence.name</div>
+                    </div>
+                }
+                @*<table id="table-qual">
                     <tr>
                         <td class="skill_name">Качество</td>
                         <td>
@@ -51,8 +57,17 @@
                         </td>
                         <td class="skill-confirm"><span class="confirm-hover" href="#"><i class="glyphicon glyphicon-ok"></i><span class="badge whoconf">Еще никто не подтвердил</span></span></td>
                     </tr>
-                </table>
+                </table>*@
 
+            </div>
+            <div class="alert alert-success">Личностные компетенции</div>
+            <div id="personal">
+                @foreach (var competence in Model.Profile.students_personal_competences)
+                {
+                    <div>
+                        <i class="fa fa-circle" aria-hidden="true"></i><div style="display: inline" class="skill_name"> @competence.pe.name</div>
+                    </div>
+                }
             </div>
             <!--
         <div class="badge badge-primary">Теория баз данных <i class="glyphicon glyphicon-ok confirm-other"></i></div><br />
@@ -77,43 +92,43 @@
     function ready() {
 
 
-        var arr = [
-            {
-                'name': 'Самостоятельность',
-                'score': 2
-            },
-            {
-                'name': 'Стрессоустойчивость',
-                'score': 4
-            },
-            {
-                'name': 'Тактичность',
-                'score': 5
-            }
-        ];
-        for (var k = 1; k <= 3; k++) {
-            $("#testrat"+k).raty({
-                score: arr[k - 1].score,
-                numberMax: 5,
-                readOnly: true
-            });
-        }
-         var j = 0;
-         var arrayTest = ["один", "два", "три", "пять", "десять"];
-         arr.forEach(function (item) {
-             var idforcode = item.name.replace(/\s{1,}/g, '').replace(/[-()/\\]/g, '').replace(/\#/g, '-sh').replace(/\+/g, '-pl');
-             $("#table-qual").append('<tr>' +
-                 '<td class="skill_name">' + item.name + '</td>' +
-                 '<td>' +
-                 '<div id="' + item.name.replace(/\s{1,}/g, '') + '"></div>' +
-                 '<input type="hidden" name="competition[\'' + item.name.replace(/\s{1,}/g, '') + '\']" id="' + idforcode + 'hide" value="1" />' +
-                 '  <td class="skill-confirm"><span class="confirm-hover" href="#"><i class="glyphicon glyphicon-ok"></i><span class="badge whoconf">Еще никто не подтвердил</span></span></td>'
-             );
-             j++;
-             var code = '$("#' + idforcode + '").raty({numberMax: 5, score: ' + item.score + ',target:  "#' + idforcode + 'hide",readOnly:true\});';
-             console.log(code);
-             eval(code);
-         });
+        //var arr = [
+        //    {
+        //        'name': 'Самостоятельность',
+        //        'score': 2
+        //    },
+        //    {
+        //        'name': 'Стрессоустойчивость',
+        //        'score': 4
+        //    },
+        //    {
+        //        'name': 'Тактичность',
+        //        'score': 5
+        //    }
+        //];
+        //for (var k = 1; k <= 3; k++) {
+        //    $("#testrat"+k).raty({
+        //        score: arr[k - 1].score,
+        //        numberMax: 5,
+        //        readOnly: true
+        //    });
+        //}
+        // var j = 0;
+        // var arrayTest = ["один", "два", "три", "пять", "десять"];
+        // arr.forEach(function (item) {
+        //     var idforcode = item.name.replace(/\s{1,}/g, '').replace(/[-()/\\]/g, '').replace(/\#/g, '-sh').replace(/\+/g, '-pl');
+        //     $("#table-qual").append('<tr>' +
+        //         '<td class="skill_name">' + item.name + '</td>' +
+        //         '<td>' +
+        //         '<div id="' + item.name.replace(/\s{1,}/g, '') + '"></div>' +
+        //         '<input type="hidden" name="competition[\'' + item.name.replace(/\s{1,}/g, '') + '\']" id="' + idforcode + 'hide" value="1" />' +
+        //         '  <td class="skill-confirm"><span class="confirm-hover" href="#"><i class="glyphicon glyphicon-ok"></i><span class="badge whoconf">Еще никто не подтвердил</span></span></td>'
+        //     );
+        //     j++;
+        //     var code = '$("#' + idforcode + '").raty({numberMax: 5, score: ' + item.score + ',target:  "#' + idforcode + 'hide",readOnly:true\});';
+        //     console.log(code);
+        //     eval(code);
+        // });
          
 
 
