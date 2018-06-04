@@ -25,5 +25,8 @@ namespace KhaiJobs.Entities
         public virtual ICollection<vacancies_proffessional_competences> vacancies_proffessional_competences { get; set; }
         public string name { get; set; }
 
+        public virtual List<skill> skills { get; set; }
+        public virtual List<knowlege> knowlege { get; set; }
+        public virtual List<ability> abilities { get; set; }
     }
 }

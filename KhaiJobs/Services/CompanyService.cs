@@ -1,4 +1,5 @@
 ﻿using KhaiJobs.DataAccess;
+using KhaiJobs.Entities;
 using KhaiJobs.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,16 +10,15 @@ namespace KhaiJobs.Services
 {
     public class CompanyService
     {
-        MainContext _context;
+        MainContext _context = new MainContext();
         public CompanyService()
         {
-             _context = new MainContext();
         }
 
         public ViewResumeViewModel GetViewResume(int id)
         {
             var viewResumeViewModel = new ViewResumeViewModel();
-            var resume = _context.position_resumes.Where(x => x.id == id).FirstOrDefault();
+            var resume = _context.position_resumes.Where(x => x.id == id).FirstOrDefault() ?? new position_resumes();
             if (resume == null)
             {
                 return null;

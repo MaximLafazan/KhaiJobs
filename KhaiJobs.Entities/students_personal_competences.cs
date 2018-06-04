@@ -26,6 +26,7 @@ namespace KhaiJobs.Entities
 
         public virtual personal_competences_levels personal_competences_levels { get; set; }
 
+        public virtual personal_competences personal_competence { get; set; }
         public virtual student_profiles student_profiles { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿
+﻿document.addEventListener("DOMContentLoaded", ready);
+
 // этот массив должен подгружатся из БД
 
 
@@ -8,7 +9,22 @@ var ArrayKnow = ["Action Script", "C++/CLI", "C++", "ColdFusion", "D", "Delphi",
 
 var ArrayAbility = ["Умение один", "Умение два"];
 
- $(document).ready(function () {
+function ready() {
+    //setTimeout(updtime, 1000);
+
+    /*
+    $("#testrate").raty({
+        score: 1,
+        numberMax: 5,
+        target: "#" + this.id + "hide",
+        click: function (score, evt) {
+            //alert('ID: ' + this.id + "\nscore: " + score + "\nevent: " + evt);
+            $("#" + this.id + "hide").val(score);
+            alert(document.getElementById(this.id + "hide").value);
+        }
+
+    });
+    */
 
     $(document).on('click', '.skill-remove > a', function () {
         $(this).parents('tr').fadeOut(100, function () {
@@ -28,7 +44,6 @@ var ArrayAbility = ["Умение один", "Умение два"];
         });
         return false;
     });
-
 
 
 
@@ -78,35 +93,31 @@ var ArrayAbility = ["Умение один", "Умение два"];
 
 
     var tmp = 1;
-    function AddItemToTable(tabelName, inputEl, text) {
-        var tabel = $("#" + tabelName);
-        if (tabel.find("tr").length) {
+    function AddItemToTable(tableName, inputEl, text) {
+        var table = $("#" + tableName)[0];
+        var flagExist = false;
+        if (table.children.length != 0) {
 
-            var listQuantyties = tabel[0].children[0].children;
-            var flagExist = false;
-            for (var i = 0; i < listQuantyties.length; i++) {
-
-                console.log(listQuantyties[i].children[0].innerHTML);
-                if (listQuantyties[i].children[0].innerHTML == text) {
-
+            $(table).children().each(function (index, value) {
+                if ($(value).children(".skill-name:first")[0].innerHTML == text) {
                     flagExist = true;
                 }
-            }
+            });
         }
         $("#" + inputEl).val("");
         //var idforcode = text.replace(/\s{1,}/g, '').replace(/\(/g, 'sc-o').replace(/\)/g, 'sc-c').replace(/[()/\\]/g, '').replace(/\#/g, '-sh').replace(/\+/g, '-pl');
         var idforcode = "";
         if (!flagExist)
-            $("#" + tabelName).append('<tr>' +
-                '<td class="skill_name">' + text + '</td>' +
+            $("#" + tableName).append('<tr>' +
+                '<td class="skill-name">' + text + '</td>' +
                 '<td>' +
-                '<div class="qualityone tmpUtem"></div>' +
+                '<div id="tmpUtem' + tmp + '" class="qualityone"></div>' +
                 '<input type="hidden" name="competition[\'' + text + '\']" id="' + idforcode + 'hide" value="1" />' +
                 ' </td> <td class="skill-remove"><a href="#">×</a></td> </tr>'
             );
-        var code = '$(".tmpUtem").raty({score: 1,numberMax: 5,click: function(score, evt){this.nextSibling.value=score}});';
+        //var code = '$("#tmpUtem' + tmp + '").raty({score: 1,numberMax: 5,click: function(score, evt){this.nextSibling.value=score}});';
         //console.log(code);
-        eval(code);
+        //eval(code);
         tmp++;
         return false;
     }
@@ -154,5 +165,40 @@ var ArrayAbility = ["Умение один", "Умение два"];
 
 
 
+};
 
-});
+function saveCompetence(isPersonal) {
+    var data = {
+        ProfileId: $("#profileId").val(),
+        Name: $("#competenceName").val(),
+        Skills: getNames("table-skill"),
+        Knowlege: getNames("table-know"),
+        Abilities: getNames("table-ability")
+    }
+    var url = "/Student/AddProfessionalCompetence";
+    if (isPersonal) {
+        url = "/Student/AddPersonalCompetence"
+    }
+    $.ajax({
+        method: "POST",
+        url: url,
+        data: data
+    })
+      .done(function () {
+      });
+}
+
+function getNames(id) {
+    var table = $("#" + id)[0];
+    if (!table) {
+        return [];
+    }
+    var names = [];
+    if (table.children.length != 0) {
+        $(table).children().each(function (index, value) {
+            names.push($(value).children(".skill-name:first")[0].innerHTML)
+        });
+    }
+    return names;
+}
+
