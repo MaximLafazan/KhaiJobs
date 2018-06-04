@@ -72,10 +72,15 @@ namespace KhaiJobs.Controllers
         {
             return View();
         }
-        public ActionResult AddProffecionalCompetence(int id)
+        public ActionResult AddProfessionalCompetence(int id, int competenceId = 0)
         {
             ViewBag.Id = id;
-            return View();
+            AddProfessionalCompetenceViewModel model = new AddProfessionalCompetenceViewModel();
+            if (competenceId != 0)
+            {
+                model = _service.GetProfessionalCompetence(competenceId);
+            }
+            return View(model);
         }
         [HttpPost]
         public ActionResult AddProfessionalCompetence(AddProfessionalCompetenceViewModel model)
@@ -83,9 +88,14 @@ namespace KhaiJobs.Controllers
             _service.AddProfessionalCompetence(model);
             return RedirectToAction("EditProfile");
         }
-        public ActionResult AddPersonalCompetence(int id)
+        public ActionResult AddPersonalCompetence(int id, int competenceId = 0)
         {
             ViewBag.Id = id;
+            AddPersonalCompetenceViewModel model = new AddPersonalCompetenceViewModel();
+            if (competenceId != 0)
+            {
+                model = _service.GetPersonalCompetence(competenceId);
+            }
             return View();
         }
         [HttpPost]

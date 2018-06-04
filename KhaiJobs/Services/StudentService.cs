@@ -67,5 +67,28 @@ namespace KhaiJobs.Services
             });
             _context.SaveChanges();
         }
+
+        public AddProfessionalCompetenceViewModel GetProfessionalCompetence(int competenceId)
+        {
+            AddProfessionalCompetenceViewModel model = new AddProfessionalCompetenceViewModel();
+            var competence = _context.students_proffessional_competences.FirstOrDefault(x => x.id == competenceId);
+            model.Id = competence.id;
+            model.Name = competence.proffessional_competence.name;
+            model.ProfileId = competence.id_student_profiles.Value;
+            model.Skills = competence.proffessional_competence.skills.Select(x => x.name).ToList();
+            model.Knowlege = competence.proffessional_competence.knowlege.Select(x => x.name).ToList();
+            model.Abilities = competence.proffessional_competence.abilities.Select(x => x.name).ToList();
+            return model;
+        }
+
+        public AddPersonalCompetenceViewModel GetPersonalCompetence(int competenceId)
+        {
+            AddPersonalCompetenceViewModel model = new AddPersonalCompetenceViewModel();
+            var competence = _context.students_personal_competences.FirstOrDefault(x => x.id == competenceId);
+            model.Id = competence.id;
+            model.Name = competence.personal_competence.name;
+            model.ProfileId = competence.id_student_profiles.Value;
+            return model;
+        }
     }
 }

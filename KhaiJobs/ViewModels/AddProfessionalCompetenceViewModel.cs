@@ -7,6 +7,7 @@ namespace KhaiJobs.ViewModels
 {
     public class AddProfessionalCompetenceViewModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int ProfileId { get; set; }
         public List<string> Skills { get; set; }

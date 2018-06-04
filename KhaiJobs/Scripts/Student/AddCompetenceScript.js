@@ -167,7 +167,7 @@ function ready() {
 
 };
 
-function saveCompetence() {
+function saveCompetence(isPersonal) {
     var data = {
         ProfileId: $("#profileId").val(),
         Name: $("#competenceName").val(),
@@ -175,9 +175,13 @@ function saveCompetence() {
         Knowlege: getNames("table-know"),
         Abilities: getNames("table-ability")
     }
+    var url = "/Student/AddProfessionalCompetence";
+    if (isPersonal) {
+        url = "/Student/AddPersonalCompetence"
+    }
     $.ajax({
         method: "POST",
-        url: "/Student/AddCompetence",
+        url: url,
         data: data
     })
       .done(function () {
@@ -185,10 +189,10 @@ function saveCompetence() {
 }
 
 function getNames(id) {
-    if (!$("#" + id)) {
+    var table = $("#" + id)[0];
+    if (!table) {
         return [];
     }
-    var table = $("#" + id)[0];
     var names = [];
     if (table.children.length != 0) {
         $(table).children().each(function (index, value) {

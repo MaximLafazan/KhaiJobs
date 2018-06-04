@@ -30,17 +30,7 @@
         <div>
                 
         </div>
-        <div class="alert alert-info">Личностные компетенции <a href="/Student/AddCompetence" role="button" class="btn btn-action link-btn">Добавить</a></div>
-        <div>
-            <span>Test name:</span>
-            <div style="display:inline" class="testrat"></div>
-            <a class="btn link-btn">Редактировать</a>
-        </div>
-        <div>
-            <span>Test name:</span>
-            <div style="display:inline"  class="testrat"></div>
-            <a class="btn link-btn">Редактировать</a>
-        </div>
+       
 
         <div>
             <div class="alert alert-info">Профессиональные компетенции <a href="/Student/AddProfessionalCompetence?id=@Model.Profile.id" class="btn btn-action link-btn">Добавить</a></div>
@@ -49,18 +39,18 @@
                 <div>
                     <span>@competence.proffessional_competence.name</span>
                     <div style="display:inline" class="testrat"></div>
-                    <a href="/Student/EditProfessionalCompetence?id=@Model.Profile.id" class="btn btn-action link-btn">Редактировать</a>
+                    <a href="/Student/AddProfessionalCompetence?id=@Model.Profile.id&competenceId=@competence.id" class="btn btn-action link-btn">Редактировать</a>
                 </div>
             }
         </div>
-        <div>
+        <div style="margin-top: 20px">
             <div class="alert alert-info">Личностные компетенции <a href="/Student/AddPersonalCompetence?id=@Model.Profile.id" class="btn btn-action link-btn">Добавить</a></div>
             @foreach (var competence in Model.Profile.students_personal_competences)
             {
                 <div>
                     <span>@competence.personal_competence.name</span>
                     <div style="display:inline" class="testrat"></div>
-                    <a href="/Student/EditPersonalCompetence?id=@Model.Profile.id" class="btn btn-action link-btn">Редактировать</a>
+                    <a href="/Student/AddPersonalCompetence?id=@Model.Profile.id&competenceId=@competence.id" class="btn btn-action link-btn">Редактировать</a>
                 </div>
             }
         </div>
